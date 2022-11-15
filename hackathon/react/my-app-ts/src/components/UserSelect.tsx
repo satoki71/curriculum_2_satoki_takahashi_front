@@ -110,6 +110,10 @@ const UserSelect = () => {
     }
     };
 
+    useEffect(() => {
+        fetchUsers()
+    },[])
+
     type UserOption = {
         value: string;
         label: string;
@@ -139,7 +143,7 @@ const UserSelect = () => {
     // const options = users.map(convertToOption)
     
     const options = users.map((item) =>[
-        { value: item.name, label: item.name }
+        { value: item.userId, label: item.name }
     ])
 
     // const options = [
