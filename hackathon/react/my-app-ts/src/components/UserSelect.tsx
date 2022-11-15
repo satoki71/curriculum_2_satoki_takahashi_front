@@ -127,20 +127,20 @@ const UserSelect = () => {
     //     };
     // }
     
-    function convertToOption(user: userPost): UserOption {
+    function convertToOption(users: userPost): UserOption {
         return {
-            value: user.userId,
-            label: user.name
+            value: users.userId,
+            label: users.name
             // affiliationId: user.affiliationId,
             // points: user.points,
         };
     }
     
-    const options = users.map(convertToOption)
+    // const options = users.map(convertToOption)
     
-    // const options = users.map((UserOption) =>{
-    //     { value: UserOption.name, label: UserOption.name }
-    // })
+    const options = users.map((item) =>[
+        { value: item.name, label: item.name }
+    ])
 
     // const options = [
     //     { value: 'chocolate', label: 'Chocolate' },
