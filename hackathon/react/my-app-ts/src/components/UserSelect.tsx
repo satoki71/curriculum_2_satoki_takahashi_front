@@ -147,6 +147,7 @@ const UserSelect = () => {
     //     { value: 'strawberry', label: 'Strawberry' },
     //     { value: 'vanilla', label: 'Vanilla' }
     // ]
+    //選択
     return (
         <div className='UserSelect'>
             <label>ユーザー名</label>
