@@ -22,15 +22,12 @@ type AffiliationOption = {
     label: string;
 };
 
-const Form = (props: Props) => {
+const UserForm = (props: Props) => {
 
     const submit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         props.onSubmit(props.name, props.affiliation);
     };
-
-
-
 
 
 
@@ -113,4 +110,4 @@ const Form = (props: Props) => {
     );
 };
 
-export default Form;
+export default UserForm;

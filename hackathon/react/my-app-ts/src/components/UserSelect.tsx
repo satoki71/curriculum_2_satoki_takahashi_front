@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {Dispatch, SetStateAction} from 'react'
 import Select from 'react-select'
 import { useState, useEffect } from "react";
 import {userPost} from "./Sidebar"
@@ -98,6 +98,7 @@ import { type } from 'os';
 // }
 
 type Props = {
+    setUser: Dispatch<SetStateAction<string>>;
     users: userPost[];
     // users: (setUsers: userPost[] | null) => void;
     // [users, setUsers]: (useState<userPost[]>([])) => void;
@@ -165,6 +166,7 @@ const UserSelect = (props: Props) => {
 
     const onChange = (e: { label: string; value: string; } | null) => {
         if (e != null) {
+            props.setUser(e.label);
             props.fetchMates(e.label);
             console.log(e.value); 
             return;

@@ -1,10 +1,11 @@
-import React from 'react'
+import React, {Dispatch, SetStateAction} from 'react'
 import{SidebarData} from "./SidebarData"
-import Form from "./Form"
+import UserForm from "./UserForm"
 import UserSelect from "./UserSelect"
 import { useState, useEffect } from "react";
 
 type Props = {
+  setUser: Dispatch<SetStateAction<string>>;
   fetchMates: (value: string) => void;
 }
 
@@ -32,11 +33,6 @@ const Sidebar = (props: Props) => {
           console.error(err);
       }
     };
-
-
-
-
-
 
     const [name, setName] = useState("");
     const [affiliation, setAffiliation] = useState("");
@@ -82,7 +78,7 @@ const Sidebar = (props: Props) => {
 
     return (
         <div className="Sidebar">
-        <UserSelect users={users} fetchUsers={fetchUsers} fetchMates={props.fetchMates}/>
+        <UserSelect setUser={props.setUser} users={users} fetchUsers={fetchUsers} fetchMates={props.fetchMates}/>
         <ul className='Sidebarlist'>
             {SidebarData.map((value, key) => {
                 return(
@@ -97,7 +93,7 @@ const Sidebar = (props: Props) => {
                 )
             })}
         </ul>
-        <Form name={name} setName={setName} affiliation={affiliation} setAffiliation={setAffiliation} onSubmit={onSubmit}/>
+        <UserForm name={name} setName={setName} affiliation={affiliation} setAffiliation={setAffiliation} onSubmit={onSubmit}/>
         </div>
     )
 }

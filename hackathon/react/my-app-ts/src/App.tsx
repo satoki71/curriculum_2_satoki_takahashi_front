@@ -4,8 +4,11 @@ import './App.css';
 import Sidebar from "./components/Sidebar"
 import { useState, useEffect } from "react";
 import {userPost} from "./components/Sidebar"
+import Main from "./components/Main"
 
 function App() {
+  const [user, setUser] = useState("");
+
   const [mates, setMates] = useState<userPost[]>([]);
 
   const fetchMates = async(value: string) => {
@@ -24,9 +27,10 @@ function App() {
 
   
   return (
-    <div className="App">
-      <Sidebar fetchMates={fetchMates}/>
-      {/* <Main /> */}
+    <div className="App" style={{ display: "flex", flexDirection: "row" }}> 
+    {/* style={{ display: "flex", flexDirection: "row" }} */}
+      <Sidebar setUser={setUser} fetchMates={fetchMates}/>
+      <Main mates={mates}/>
     </div>
   );
 }
