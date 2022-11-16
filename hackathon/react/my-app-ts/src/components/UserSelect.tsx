@@ -107,8 +107,8 @@ type Props = {
 
 type UserOption = {
     // value1: string;
-    value: string
-    label: string
+    value: string;
+    label: string;
     // affiliationId: string;
     // points: number;
 };
@@ -167,7 +167,7 @@ const UserSelect = (props: Props) => {
         if (e != null) {
             props.fetchMates(e.label);
             console.log(e.value); 
-            return
+            return;
         }
         console.log(e);
     }

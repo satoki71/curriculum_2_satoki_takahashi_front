@@ -55,7 +55,7 @@ const Sidebar = (props: Props) => {
         if (!affiliation) {
             alert("Please enter affiliation");
             return;
-          }
+        }
     
         try{
           const response = await fetch(
