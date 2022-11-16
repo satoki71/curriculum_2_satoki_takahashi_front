@@ -4,7 +4,39 @@ import Form from "./Form"
 import UserSelect from "./UserSelect"
 import { useState, useEffect } from "react";
 
-function Sidebar() {
+type Props = {
+  fetchMates: (value: string) => void;
+}
+
+export type userPost = {
+  userId: string
+  name: string
+  affiliationId: string
+  points: number
+}
+
+
+const Sidebar = (props: Props) => {
+    const [users, setUsers] = useState<userPost[]>([]);
+
+    const fetchUsers = async () => {
+      try {
+          const res = await fetch("https://curriculum-2-satoki-takahashi-per-dufixj5qvq-uc.a.run.app/users", {method: 'GET'});
+          if (!res.ok) {
+          throw Error(`Failed to fetch users: ${res.status}`);
+          }
+      
+          const users = await res.json();
+          setUsers(users);
+      } catch (err) {
+          console.error(err);
+      }
+    };
+
+
+
+
+
 
     const [name, setName] = useState("");
     const [affiliation, setAffiliation] = useState("");
@@ -41,7 +73,7 @@ function Sidebar() {
             }
             setName("");
             setAffiliation("");
-            // fetchUsers();
+            fetchUsers();
         } catch (err) {
           console.error(err);
         }
@@ -50,7 +82,7 @@ function Sidebar() {
 
     return (
         <div className="Sidebar">
-        <UserSelect />
+        <UserSelect users={users} fetchUsers={fetchUsers} fetchMates={props.fetchMates}/>
         <ul className='Sidebarlist'>
             {SidebarData.map((value, key) => {
                 return(
@@ -65,7 +97,7 @@ function Sidebar() {
                 )
             })}
         </ul>
-        <Form onSubmit={onSubmit}/>
+        <Form name={name} setName={setName} affiliation={affiliation} setAffiliation={setAffiliation} onSubmit={onSubmit}/>
         </div>
     )
 }

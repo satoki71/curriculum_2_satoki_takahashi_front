@@ -2,11 +2,31 @@ import React from 'react';
 // import logo from './logo.svg';
 import './App.css';
 import Sidebar from "./components/Sidebar"
+import { useState, useEffect } from "react";
+import {userPost} from "./components/Sidebar"
 
 function App() {
+  const [mates, setMates] = useState<userPost[]>([]);
+
+  const fetchMates = async(value: string) => {
+    try {
+      const res = await fetch(`https://curriculum-2-satoki-takahashi-per-dufixj5qvq-uc.a.run.app/mate?name=${value}`, {method: 'GET'});
+      if (!res.ok) {
+      throw Error(`Failed to fetch users: ${res.status}`);
+      }
+  
+      const mates = await res.json();
+      setMates(mates);
+  } catch (err) {
+      console.error(err);
+  }
+  };
+
+  
   return (
     <div className="App">
-      <Sidebar />
+      <Sidebar fetchMates={fetchMates}/>
+      {/* <Main /> */}
     </div>
   );
 }

@@ -1,17 +1,20 @@
+import React, {Dispatch, SetStateAction} from "react";
 import { useState } from "react";
+import Sidebar from "./Sidebar";
 
 type Props = {
+    name: string;
+    setName: Dispatch<SetStateAction<string>>;
+    affiliation: string;
+    setAffiliation: Dispatch<SetStateAction<string>>;
     onSubmit: (name: string, affiliation: string) => void;
   };
 
 const Form = (props: Props) => {
 
-    const [name, setName] = useState("");
-    const [affiliation, setAffiliation] = useState("");
-
     const submit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        props.onSubmit(name, affiliation);
+        props.onSubmit(props.name, props.affiliation);
     };
 
     return (
@@ -21,8 +24,8 @@ const Form = (props: Props) => {
                 <label>名前: </label>
                 <input
                     type={"text"}
-                    value={name}
-                    onChange={(e) => setName(e.target.value)}
+                    value={props.name}
+                    onChange={(e) => props.setName(e.target.value)}
                 ></input>
             </div>
             <div className="input-contents2" style={{ display: "flex", flexDirection: "row" }}>
@@ -30,8 +33,8 @@ const Form = (props: Props) => {
                 <input
                     type={"text"}
                     style={{ marginBottom: 20 }}
-                    value={affiliation}
-                    onChange={(e) => setAffiliation(e.target.value)}
+                    value={props.affiliation}
+                    onChange={(e) => props.setAffiliation(e.target.value)}
                 ></input>
             </div>
             

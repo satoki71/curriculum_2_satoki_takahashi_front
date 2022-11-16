@@ -1,6 +1,8 @@
 import React from 'react'
 import Select from 'react-select'
 import { useState, useEffect } from "react";
+import {userPost} from "./Sidebar"
+import { type } from 'os';
 
 // export type UseSelectProps = {
 //     selected: userPost | null;
@@ -86,79 +88,101 @@ import { useState, useEffect } from "react";
 //     );
 // };
 
-const UserSelect = () => {
-    type userPost = {
-        userId: string
-        name: string
-        affiliationId: string
-        points: number
-    }
-    
-    const [users, setUsers] = useState<userPost[]>([]);
-    
-    const fetchUsers = async () => {
-    try {
-        const res = await fetch("https://curriculum-2-satoki-takahashi-per-dufixj5qvq-uc.a.run.app/users", {method: 'GET'});
-        if (!res.ok) {
-        throw Error(`Failed to fetch users: ${res.status}`);
-        }
-    
-        const users = await res.json();
-        setUsers(users);
-    } catch (err) {
-        console.error(err);
-    }
-    };
+
+
+// type userPost = {
+//     userId: string
+//     name: string
+//     affiliationId: string
+//     points: number
+// }
+
+type Props = {
+    users: userPost[];
+    // users: (setUsers: userPost[] | null) => void;
+    // [users, setUsers]: (useState<userPost[]>([])) => void;
+    fetchUsers: () => void;
+    fetchMates: (value: string) => void;
+};
+
+type UserOption = {
+    // value1: string;
+    value: string
+    label: string
+    // affiliationId: string;
+    // points: number;
+};
+
+type UserName = {
+    name: string
+}
+
+const UserSelect = (props: Props) => {
+
+    // const [users, setUsers] = useState<userPost[]>([]);
 
     useEffect(() => {
-        fetchUsers()
+        props.fetchUsers()
     },[])
 
-    type UserOption = {
-        value: string;
-        label: string;
-        // affiliationId: string;
-        // points: number;
-    };
 
-    // function convertToUser(args: UserOption | null): userPost | null {
-    //     if (!args) return null;
-    //     return {
-    //         userId: args.value,
-    //         name: args.label,
-    //         affiliationId: args.affiliationId,
-    //         points: args.points,
-    //     };
-    // }
+    function convertToUser(args: UserOption): UserName | null {
+        // if (!args) return null;
+        return {
+            name: args.value
+        };
+    }
     
     function convertToOption(users: userPost): UserOption {
         return {
+            // value1: users.userId,
             value: users.userId,
             label: users.name
             // affiliationId: user.affiliationId,
             // points: user.points,
         };
     }
+    // const option = convertToOption(props.users)
+    // const options = option.map()
     
-    // const options = users.map(convertToOption)
+    const options = props.users.map(convertToOption)
     
-    const options = users.map((item) =>[
-        { value: item.userId, label: item.name }
-    ])
+    // const options = users.map((item) =>[
+    //     { value: item.name, label: item.name }
+    // ])
 
     // const options = [
     //     { value: 'chocolate', label: 'Chocolate' },
     //     { value: 'strawberry', label: 'Strawberry' },
     //     { value: 'vanilla', label: 'Vanilla' }
     // ]
-    
+
+    // (value)=>{props.fetchMates(value)}
+    // const onChange = (value: string) =>{
+    //     console.log(value); 
+    //     props.fetchMates(value)
+    // }
+
+    const onChange = (e: { label: string; value: string; } | null) => {
+        if (e != null) {
+            props.fetchMates(e.label);
+            console.log(e.value); 
+            return
+        }
+        console.log(e);
+    }
+    // const onChange = (e: any) => {
+    //     // props.fetchMates(e.taget.value)
+    //     console.log(e.target.value);
+    // }
+
     return (
         <div className='UserSelect'>
             <label>ユーザー名</label>
             <Select 
             options={options}
-            // defaultValue={{label:'',value:''}}
-            onChange={(value)=>{console.log(value)}}
+            defaultValue={{label:'',value:''}}
+            onChange={onChange}
             placeholder="please select user"
             isClearable={true}
             isSearchable={true}
@@ -169,3 +193,4 @@ const UserSelect = () => {
 
 export default UserSelect
 
+//console.log(value); 
