@@ -6,6 +6,7 @@ import { useState, useEffect } from "react";
 
 type Props = {
   setUser: Dispatch<SetStateAction<string>>;
+  setUserId: Dispatch<SetStateAction<string>>;
   fetchMates: (value: string) => void;
 }
 
@@ -78,7 +79,7 @@ const Sidebar = (props: Props) => {
 
     return (
         <div className="Sidebar">
-        <UserSelect setUser={props.setUser} users={users} fetchUsers={fetchUsers} fetchMates={props.fetchMates}/>
+        <UserSelect setUser={props.setUser} setUserId={props.setUserId} users={users} fetchUsers={fetchUsers} fetchMates={props.fetchMates}/>
         <ul className='Sidebarlist'>
             {SidebarData.map((value, key) => {
                 return(

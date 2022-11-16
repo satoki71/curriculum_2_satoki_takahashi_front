@@ -8,12 +8,13 @@ import Main from "./components/Main"
 
 function App() {
   const [user, setUser] = useState("");
+  const [userId, setUserId] = useState("");
 
   const [mates, setMates] = useState<userPost[]>([]);
 
   const fetchMates = async(value: string) => {
     try {
-      const res = await fetch(`https://curriculum-2-satoki-takahashi-per-dufixj5qvq-uc.a.run.app/mate?name=${value}`, {method: 'GET'});
+      const res = await fetch(`https://curriculum-2-satoki-takahashi-per-dufixj5qvq-uc.a.run.app/mate?userId=${value}`, {method: 'GET'});
       if (!res.ok) {
       throw Error(`Failed to fetch users: ${res.status}`);
       }
@@ -29,7 +30,7 @@ function App() {
   return (
     <div className="App" style={{ display: "flex", flexDirection: "row" }}> 
     {/* style={{ display: "flex", flexDirection: "row" }} */}
-      <Sidebar setUser={setUser} fetchMates={fetchMates}/>
+      <Sidebar setUser={setUser} setUserId={setUserId} fetchMates={fetchMates}/>
       <Main mates={mates}/>
     </div>
   );

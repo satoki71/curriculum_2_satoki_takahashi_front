@@ -99,6 +99,7 @@ import { type } from 'os';
 
 type Props = {
     setUser: Dispatch<SetStateAction<string>>;
+    setUserId: Dispatch<SetStateAction<string>>;
     users: userPost[];
     // users: (setUsers: userPost[] | null) => void;
     // [users, setUsers]: (useState<userPost[]>([])) => void;
@@ -167,7 +168,8 @@ const UserSelect = (props: Props) => {
     const onChange = (e: { label: string; value: string; } | null) => {
         if (e != null) {
             props.setUser(e.label);
-            props.fetchMates(e.label);
+            props.setUserId(e.value);
+            props.fetchMates(e.value);
             console.log(e.value); 
             return;
         }
