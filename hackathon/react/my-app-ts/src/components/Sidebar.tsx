@@ -5,9 +5,13 @@ import UserSelect from "./UserSelect"
 import { useState, useEffect } from "react";
 
 type Props = {
+  users: userPost[];
+  fetchUsers: () => void;
   setUser: Dispatch<SetStateAction<string>>;
   setUserId: Dispatch<SetStateAction<string>>;
   fetchMates: (value: string) => void;
+  fetchTakes: (value: string) => void;
+  fetchGives: (value: string) => void;
 }
 
 export type userPost = {
@@ -19,21 +23,10 @@ export type userPost = {
 
 
 const Sidebar = (props: Props) => {
-    const [users, setUsers] = useState<userPost[]>([]);
 
-    const fetchUsers = async () => {
-      try {
-          const res = await fetch("https://curriculum-2-satoki-takahashi-per-dufixj5qvq-uc.a.run.app/users", {method: 'GET'});
-          if (!res.ok) {
-          throw Error(`Failed to fetch users: ${res.status}`);
-          }
-      
-          const users = await res.json();
-          setUsers(users);
-      } catch (err) {
-          console.error(err);
-      }
-    };
+
+
+
 
     const [name, setName] = useState("");
     const [affiliation, setAffiliation] = useState("");
@@ -70,7 +63,7 @@ const Sidebar = (props: Props) => {
             }
             setName("");
             setAffiliation("");
-            fetchUsers();
+            props.fetchUsers();
         } catch (err) {
           console.error(err);
         }
@@ -79,7 +72,7 @@ const Sidebar = (props: Props) => {
 
     return (
         <div className="Sidebar">
-        <UserSelect setUser={props.setUser} setUserId={props.setUserId} users={users} fetchUsers={fetchUsers} fetchMates={props.fetchMates}/>
+        <UserSelect setUser={props.setUser} setUserId={props.setUserId} users={props.users} fetchUsers={props.fetchUsers} fetchMates={props.fetchMates} fetchTakes={props.fetchTakes} fetchGives={props.fetchGives}/>
         <ul className='Sidebarlist'>
             {SidebarData.map((value, key) => {
                 return(

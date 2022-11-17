@@ -31,6 +31,8 @@ const UserForm = (props: Props) => {
 
 
 
+
+
     const [affiliations, setAffiliations] = useState<affiliationPost[]>([]);
 
     const fetchAffiliations = async () => {
@@ -73,8 +75,8 @@ const UserForm = (props: Props) => {
 
 
     return (
-        <form style={{ display: "flex", flexDirection: "column"}} onSubmit={submit}>
-            
+        <form style={{ display: "flex", flexDirection: "column"}} onSubmit={submit} className="userForm">
+            <label className="userFormTitle">ユーザー登録</label>
             <div className="input-contents1" style={{ display: "flex", flexDirection: "row" }}>
                 <label>名前: </label>
                 <input

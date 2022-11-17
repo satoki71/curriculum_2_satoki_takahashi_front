@@ -105,9 +105,11 @@ type Props = {
     // [users, setUsers]: (useState<userPost[]>([])) => void;
     fetchUsers: () => void;
     fetchMates: (value: string) => void;
+    fetchTakes: (value: string) => void;
+    fetchGives: (value: string) => void;
 };
 
-type UserOption = {
+export type UserOption = {
     // value1: string;
     value: string;
     label: string;
@@ -169,7 +171,9 @@ const UserSelect = (props: Props) => {
         if (e != null) {
             props.setUser(e.label);
             props.setUserId(e.value);
+            props.fetchTakes(e.value);
             props.fetchMates(e.value);
+            props.fetchGives(e.value);
             console.log(e.value); 
             return;
         }
