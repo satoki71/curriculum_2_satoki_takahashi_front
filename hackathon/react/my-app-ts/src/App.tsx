@@ -9,6 +9,7 @@ import { pointPost } from './types/Point'
 
 
 function App() {
+
   const [users, setUsers] = useState<userPost[]>([]);
 
   const fetchUsers = async () => {

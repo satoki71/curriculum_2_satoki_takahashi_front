@@ -19,11 +19,29 @@ type Props = {
 
 
 const UserSelect = (props: Props) => {
+    const setLocalStorageUserId = (userId: string) => {
+        localStorage.setItem('userId', userId);
+    }
 
-    // const [users, setUsers] = useState<userPost[]>([]);
+    const setLocalStorageUser = (user: string) => {
+        localStorage.setItem('user', user);
+    }
+    
+    const getLocalUserId = localStorage.getItem('userId');
+    const getLocalUser = localStorage.getItem('user');
+    
 
     useEffect(() => {
         props.fetchUsers()
+        if(getLocalUserId!=null) {
+            props.setUserId(getLocalUserId)
+            props.fetchMates(getLocalUserId);
+            props.fetchTakes(getLocalUserId);
+            props.fetchGives(getLocalUserId);
+        }
+        if(getLocalUser!=null) {
+            props.setUser(getLocalUser)
+        } 
     },[])
 
 
@@ -43,26 +61,8 @@ const UserSelect = (props: Props) => {
             // points: user.points,
         };
     }
-    // const option = convertToOption(props.users)
-    // const options = option.map()
     
     const options = props.users.map(convertToOption)
-    
-    // const options = users.map((item) =>[
-    //     { value: item.name, label: item.name }
-    // ])
-
-    // const options = [
-    //     { value: 'chocolate', label: 'Chocolate' },
-    //     { value: 'strawberry', label: 'Strawberry' },
-    //     { value: 'vanilla', label: 'Vanilla' }
-    // ]
-
-    // (value)=>{props.fetchMates(value)}
-    // const onChange = (value: string) =>{
-    //     console.log(value); 
-    //     props.fetchMates(value)
-    // }
 
     const onChange = (e: { label: string; value: string; } | null) => {
         if (e != null) {
@@ -71,15 +71,13 @@ const UserSelect = (props: Props) => {
             props.fetchTakes(e.value);
             props.fetchMates(e.value);
             props.fetchGives(e.value);
+            setLocalStorageUserId(e.value)
+            setLocalStorageUser(e.label)
             console.log(e.value); 
             return;
         }
         console.log(e);
     }
-    // const onChange = (e: any) => {
-    //     // props.fetchMates(e.taget.value)
-    //     console.log(e.target.value);
-    // }
 
     return (
         <div className='UserSelect'>
