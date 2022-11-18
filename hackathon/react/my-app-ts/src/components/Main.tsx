@@ -7,6 +7,7 @@ import TakeList from "./TakeList"
 import GiveList from "./GiveList"
 
 type Props = {
+    user : string;
     userId : string;
     mates: userPost[];
     fetchMates: (value: string) => void;
@@ -41,10 +42,11 @@ const Main = (props :Props) => {
 
     return (
         <div className="Main">
-        <MateList mates={props.mates}/>
-        <TakeList takes={props.takes} users={props.users}/>
-        <PointGiveForm mates={props.mates} userId={props.userId} fetchUserUpdate={fetchUserUpdate} fetchMates={props.fetchMates}/>
-        <GiveList gives={props.gives} users={props.users} fetchUserUpdate={fetchUserUpdate} fetchMates={props.fetchMates} fetchGives={props.fetchGives}/>
+            <h2>Hello! {props.user}</h2>
+            <MateList mates={props.mates}/>
+            <TakeList takes={props.takes} users={props.users}/>
+            <PointGiveForm mates={props.mates} userId={props.userId} fetchUserUpdate={fetchUserUpdate} fetchMates={props.fetchMates}/>
+            <GiveList gives={props.gives} users={props.users} fetchUserUpdate={fetchUserUpdate} fetchMates={props.fetchMates} fetchGives={props.fetchGives}/>
         </div>
     )
 }
