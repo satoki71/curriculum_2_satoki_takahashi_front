@@ -6,6 +6,10 @@ import { useState, useEffect } from "react";
 import {userPost} from "./types/User"
 import Main from "./components/Main"
 import { pointPost } from './types/Point'
+import { BrowserRouter, Link, Routes, Route } from "react-router-dom";
+import Home from "./components/Home"
+import Take from "./components/Take"
+import Give from "./components/Give"
 
 
 function App() {
@@ -85,11 +89,23 @@ function App() {
 
 
   return (
-    <div className="App" style={{ display: "flex", flexDirection: "row" }}> 
-    {/* style={{ display: "flex", flexDirection: "row" }} */}
-      <Sidebar users={users} fetchUsers={fetchUsers} setUser={setUser} setUserId={setUserId} fetchMates={fetchMates} fetchTakes={fetchTakes} fetchGives={fetchGives}/>
-      <Main user={user} userId={userId} mates={mates} fetchMates={fetchMates} takes={takes} users={users} gives={gives} fetchGives={fetchGives}/>
-    </div>
+    <BrowserRouter>
+      <div className="App">
+        <Routes>
+          <Route path="/" element={<Home user={user} userId={userId} mates={mates} fetchMates={fetchMates} takes={takes} users={users} gives={gives} fetchGives={fetchGives} fetchUsers={fetchUsers} setUser={setUser} setUserId={setUserId} fetchTakes={fetchTakes}/>} />
+          <Route path="/Take" element={<Take users={users} fetchUsers={fetchUsers} setUser={setUser} setUserId={setUserId} fetchMates={fetchMates} fetchTakes={fetchTakes} fetchGives={fetchGives} user={user} userId={userId} takes={takes} />} />
+          <Route path="/Give" element={<Give users={users} fetchUsers={fetchUsers} setUser={setUser} setUserId={setUserId} fetchMates={fetchMates} fetchTakes={fetchTakes} fetchGives={fetchGives} user={user} userId={userId} takes={takes} mates={mates} gives={gives}/>} />
+        </Routes>
+      </div>
+    </BrowserRouter>
+
+    // <Home />
+
+    // <div className="App" style={{ display: "flex", flexDirection: "row" }}> 
+    // {/* style={{ display: "flex", flexDirection: "row" }} */}
+    //   <Sidebar users={users} fetchUsers={fetchUsers} setUser={setUser} setUserId={setUserId} fetchMates={fetchMates} fetchTakes={fetchTakes} fetchGives={fetchGives}/>
+    //   <Main user={user} userId={userId} mates={mates} fetchMates={fetchMates} takes={takes} users={users} gives={gives} fetchGives={fetchGives}/>
+    // </div>
   );
 }
 
