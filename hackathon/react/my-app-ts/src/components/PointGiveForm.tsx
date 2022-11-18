@@ -1,8 +1,8 @@
 import React from 'react'
 import Select from 'react-select'
 import {useState} from "react";
-import {userPost} from "./Sidebar";
-import {UserOption} from "./UserSelect";
+import {userPost} from "../types/User";
+import {UserOption} from "../types/User";
 
 type Props ={
     mates: userPost[];
@@ -67,10 +67,10 @@ const PointGiveForm = (props :Props) => {
               throw Error(`Failed to create user: ${response.status}`);
             }
             props.fetchUserUpdate(toUserId);
-            props.fetchMates(fromUserId);
             setPoints(0);
             setMessage("Thank you");
             setToUserId("");
+            props.fetchMates(fromUserId);
         } catch (err) {
           console.error(err);
         }

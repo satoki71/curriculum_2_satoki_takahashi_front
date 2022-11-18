@@ -3,16 +3,9 @@ import React from 'react';
 import './App.css';
 import Sidebar from "./components/Sidebar"
 import { useState, useEffect } from "react";
-import {userPost} from "./components/Sidebar"
+import {userPost} from "./types/User"
 import Main from "./components/Main"
-
-export type pointPost = {
-  id: string;
-  fromUserId: string;
-  points: number;
-  message: string;
-  toUserId: string;
-}
+import { pointPost } from './types/Point'
 
 
 function App() {

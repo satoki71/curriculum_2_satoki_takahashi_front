@@ -1,5 +1,6 @@
 import React from 'react'
 import {useState} from "react";
+import {GiveEditOption} from "../types/Point"
 
 type Props = {
     item: GiveEditOption;
@@ -7,14 +8,6 @@ type Props = {
     fetchMates: (value: string) => void;
 }
 
-export type GiveEditOption = {
-    id: string,
-    fromUserId : string,
-    name: string,
-    points: number,
-    message: string,
-    toUserId: string
-}
 
 const GiveEditForm = (props :Props) => {
 

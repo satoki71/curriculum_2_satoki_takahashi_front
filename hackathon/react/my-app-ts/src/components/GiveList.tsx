@@ -1,8 +1,8 @@
 import React from 'react'
-import {pointPost} from "../App"
+import {pointPost} from "../types/Point"
 import GiveDeleteButtom from './GiveDeleteButtom';
 import GiveEditForm from './GiveEditForm';
-import {userPost} from "./Sidebar"
+import {userPost} from "../types/User"
 import UserSelect from './UserSelect';
 
 type Props ={

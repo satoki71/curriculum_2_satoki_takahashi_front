@@ -1,8 +1,8 @@
 import React from 'react'
-import {userPost} from "./Sidebar"
+import {userPost} from "../types/User"
 import MateList from "./MateList "
 import PointGiveForm from "./PointGiveForm"
-import { pointPost } from '../App'
+import { pointPost } from '../types/Point'
 import TakeList from "./TakeList"
 import GiveList from "./GiveList"
 
@@ -43,8 +43,8 @@ const Main = (props :Props) => {
         <div className="Main">
         <MateList mates={props.mates}/>
         <TakeList takes={props.takes} users={props.users}/>
-        <GiveList gives={props.gives} users={props.users} fetchUserUpdate={fetchUserUpdate} fetchMates={props.fetchMates} fetchGives={props.fetchGives}/>
         <PointGiveForm mates={props.mates} userId={props.userId} fetchUserUpdate={fetchUserUpdate} fetchMates={props.fetchMates}/>
+        <GiveList gives={props.gives} users={props.users} fetchUserUpdate={fetchUserUpdate} fetchMates={props.fetchMates} fetchGives={props.fetchGives}/>
         </div>
     )
 }

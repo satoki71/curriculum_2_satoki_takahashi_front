@@ -1,7 +1,8 @@
 import React, {Dispatch, SetStateAction} from "react";
 import { useState, useEffect } from "react";
 import Sidebar from "./Sidebar";
-import Select from 'react-select'
+import Select from 'react-select';
+import {affiliationPost, AffiliationOption} from '../types/Affiliation'
 
 type Props = {
     name: string;
@@ -11,16 +12,6 @@ type Props = {
     onSubmit: (name: string, affiliation: string) => void;
 };
 
-type affiliationPost = {
-    id: string;
-    name: string;
-    number: number;
-}
-
-type AffiliationOption = {
-    value: string;
-    label: string;
-};
 
 const UserForm = (props: Props) => {
 
@@ -28,10 +19,6 @@ const UserForm = (props: Props) => {
         e.preventDefault();
         props.onSubmit(props.name, props.affiliation);
     };
-
-
-
-
 
     const [affiliations, setAffiliations] = useState<affiliationPost[]>([]);
 

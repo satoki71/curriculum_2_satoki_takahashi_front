@@ -3,6 +3,7 @@ import{SidebarData} from "./SidebarData"
 import UserForm from "./UserForm"
 import UserSelect from "./UserSelect"
 import { useState, useEffect } from "react";
+import {userPost} from "../types/User"
 
 type Props = {
   users: userPost[];
@@ -14,19 +15,8 @@ type Props = {
   fetchGives: (value: string) => void;
 }
 
-export type userPost = {
-  userId: string
-  name: string
-  affiliationId: string
-  points: number
-}
-
 
 const Sidebar = (props: Props) => {
-
-
-
-
 
     const [name, setName] = useState("");
     const [affiliation, setAffiliation] = useState("");

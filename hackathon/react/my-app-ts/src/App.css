@@ -90,13 +90,15 @@ ul{
   list-style: none;
   min-height: 300px;
   height: 100%;
+  margin:0 auto;
 }
 
-
+.Main{
+  width:100%;
+}
 
 .Main .MateList .title{
   text-align: center;
-  /* margin:0 auto; */
   background-color: #51a8ff;
   width:200px;
   height:20px;
@@ -117,6 +119,10 @@ ul{
 }
 
 .TakeList{
+  margin:0 auto;
+}
+
+.TakeList ul{
   list-style: none;
   min-height: 100px;
   height: 100%;
@@ -132,6 +138,8 @@ ul{
 
 .PointGiveForm{
   margin-top: 30px;
+  width:100%;
+  background-color:cadetblue;
 }
 
 .GiveItem{

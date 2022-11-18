@@ -1,8 +1,104 @@
 import React, {Dispatch, SetStateAction} from 'react'
 import Select from 'react-select'
 import { useState, useEffect } from "react";
-import {userPost} from "./Sidebar"
+import {userPost} from "../types/User"
 import { type } from 'os';
+import {UserName, UserOption} from "../types/User"
+
+type Props = {
+    setUser: Dispatch<SetStateAction<string>>;
+    setUserId: Dispatch<SetStateAction<string>>;
+    users: userPost[];
+    // users: (setUsers: userPost[] | null) => void;
+    // [users, setUsers]: (useState<userPost[]>([])) => void;
+    fetchUsers: () => void;
+    fetchMates: (value: string) => void;
+    fetchTakes: (value: string) => void;
+    fetchGives: (value: string) => void;
+};
+
+
+const UserSelect = (props: Props) => {
+
+    // const [users, setUsers] = useState<userPost[]>([]);
+
+    useEffect(() => {
+        props.fetchUsers()
+    },[])
+
+
+    function convertToUser(args: UserOption): UserName | null {
+        // if (!args) return null;
+        return {
+            name: args.value
+        };
+    }
+    
+    function convertToOption(users: userPost): UserOption {
+        return {
+            // value1: users.userId,
+            value: users.userId,
+            label: users.name
+            // affiliationId: user.affiliationId,
+            // points: user.points,
+        };
+    }
+    // const option = convertToOption(props.users)
+    // const options = option.map()
+    
+    const options = props.users.map(convertToOption)
+    
+    // const options = users.map((item) =>[
+    //     { value: item.name, label: item.name }
+    // ])
+
+    // const options = [
+    //     { value: 'chocolate', label: 'Chocolate' },
+    //     { value: 'strawberry', label: 'Strawberry' },
+    //     { value: 'vanilla', label: 'Vanilla' }
+    // ]
+
+    // (value)=>{props.fetchMates(value)}
+    // const onChange = (value: string) =>{
+    //     console.log(value); 
+    //     props.fetchMates(value)
+    // }
+
+    const onChange = (e: { label: string; value: string; } | null) => {
+        if (e != null) {
+            props.setUser(e.label);
+            props.setUserId(e.value);
+            props.fetchTakes(e.value);
+            props.fetchMates(e.value);
+            props.fetchGives(e.value);
+            console.log(e.value); 
+            return;
+        }
+        console.log(e);
+    }
+    // const onChange = (e: any) => {
+    //     // props.fetchMates(e.taget.value)
+    //     console.log(e.target.value);
+    // }
+
+    return (
+        <div className='UserSelect'>
+            <label>ユーザー名</label>
+            <Select 
+            options={options}
+            defaultValue={{label:'',value:''}}
+            onChange={onChange}
+            placeholder="please select user"
+            isClearable={true}
+            isSearchable={true}
+            />
+        </div>
+    )
+}
+
+export default UserSelect
+
+//console.log(value); 
 
 // export type UseSelectProps = {
 //     selected: userPost | null;
@@ -96,109 +192,3 @@ import { type } from 'os';
 //     affiliationId: string
 //     points: number
 // }
-
-type Props = {
-    setUser: Dispatch<SetStateAction<string>>;
-    setUserId: Dispatch<SetStateAction<string>>;
-    users: userPost[];
-    // users: (setUsers: userPost[] | null) => void;
-    // [users, setUsers]: (useState<userPost[]>([])) => void;
-    fetchUsers: () => void;
-    fetchMates: (value: string) => void;
-    fetchTakes: (value: string) => void;
-    fetchGives: (value: string) => void;
-};
-
-export type UserOption = {
-    // value1: string;
-    value: string;
-    label: string;
-    // affiliationId: string;
-    // points: number;
-};
-
-type UserName = {
-    name: string
-}
-
-const UserSelect = (props: Props) => {
-
-    // const [users, setUsers] = useState<userPost[]>([]);
-
-    useEffect(() => {
-        props.fetchUsers()
-    },[])
-
-
-    function convertToUser(args: UserOption): UserName | null {
-        // if (!args) return null;
-        return {
-            name: args.value
-        };
-    }
-    
-    function convertToOption(users: userPost): UserOption {
-        return {
-            // value1: users.userId,
-            value: users.userId,
-            label: users.name
-            // affiliationId: user.affiliationId,
-            // points: user.points,
-        };
-    }
-    // const option = convertToOption(props.users)
-    // const options = option.map()
-    
-    const options = props.users.map(convertToOption)
-    
-    // const options = users.map((item) =>[
-    //     { value: item.name, label: item.name }
-    // ])
-
-    // const options = [
-    //     { value: 'chocolate', label: 'Chocolate' },
-    //     { value: 'strawberry', label: 'Strawberry' },
-    //     { value: 'vanilla', label: 'Vanilla' }
-    // ]
-
-    // (value)=>{props.fetchMates(value)}
-    // const onChange = (value: string) =>{
-    //     console.log(value); 
-    //     props.fetchMates(value)
-    // }
-
-    const onChange = (e: { label: string; value: string; } | null) => {
-        if (e != null) {
-            props.setUser(e.label);
-            props.setUserId(e.value);
-            props.fetchTakes(e.value);
-            props.fetchMates(e.value);
-            props.fetchGives(e.value);
-            console.log(e.value); 
-            return;
-        }
-        console.log(e);
-    }
-    // const onChange = (e: any) => {
-    //     // props.fetchMates(e.taget.value)
-    //     console.log(e.target.value);
-    // }
-
-    return (
-        <div className='UserSelect'>
-            <label>ユーザー名</label>
-            <Select 
-            options={options}
-            defaultValue={{label:'',value:''}}
-            onChange={onChange}
-            placeholder="please select user"
-            isClearable={true}
-            isSearchable={true}
-            />
-        </div>
-    )
-}
-
-export default UserSelect
-
-//console.log(value); 

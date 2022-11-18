@@ -4,16 +4,16 @@ export const SidebarData = [
     {
         title: "ホーム",
         // icon: マテリアルUI -> get start -> install -> npm -> SVG icon
-        link: "/home"
+        link: "/"
     },
     {
-        title: "メール",
+        title: "受け取り一覧",
         // icon: マテリアルUI -> get start -> install -> npm -> SVG icon
-        link: "/mail"
+        link: "/take"
     },
     {
-        title: "アナリティクス",
+        title: "送信一覧",
         // icon: マテリアルUI -> get start -> install -> npm -> SVG icon
-        link: "/analitics"
+        link: "/give"
     }
 ]

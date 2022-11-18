@@ -1,5 +1,5 @@
 import React from 'react'
-import {userPost} from "./Sidebar"
+import {userPost} from "../types/User"
 
 type Props ={
     mates: userPost[];

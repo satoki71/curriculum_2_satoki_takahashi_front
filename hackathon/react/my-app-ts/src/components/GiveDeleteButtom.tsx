@@ -1,5 +1,5 @@
 import React from 'react'
-import {GiveEditOption} from "./GiveEditForm"
+import {GiveEditOption} from "../types/Point"
 
 type Props = {
     item: GiveEditOption;

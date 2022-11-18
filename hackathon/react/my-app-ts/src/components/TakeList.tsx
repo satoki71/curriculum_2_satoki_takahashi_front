@@ -1,16 +1,11 @@
 import React from 'react'
-import {pointPost} from "../App"
+import {pointPost} from "../types/Point"
 import MateList from './MateList ';
-import {userPost} from "./Sidebar"
+import {userPost} from "../types/User"
 
 type Props ={
     takes: pointPost[];
     users: userPost[];
-}
-
-type takeOption = {
-    userId: string;
-    name: string;
 }
 
 const TakeList = (props :Props) => {
@@ -32,9 +27,9 @@ const TakeList = (props :Props) => {
 
 
     return (
-        <div>
-            受信ポイント一覧
-            <ul className='TakeList'>
+        <div className='TakeList'>
+            <label>受信ポイント一覧</label>
+            <ul>
                 <li className='title'>name, points, message</li>
                 {listTakes}
             </ul>
