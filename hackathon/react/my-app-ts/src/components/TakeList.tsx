@@ -19,7 +19,9 @@ const TakeList = (props :Props) => {
         return(
             // console.log(getName)
             <li key={item.id} className='list'>
-            {getName[0].name}, {item.points}, {item.message}
+                <div id="name">{getName[0].name}</div>
+                <div id="points">{item.points}</div>
+                <div id="message">{item.message}</div>
             </li>
         )
         
@@ -27,10 +29,14 @@ const TakeList = (props :Props) => {
 
 
     return (
-        <div className='TakeList'>
-            <label>受信ポイント一覧</label>
-            <ul>
-                <li className='title'>name, points, message</li>
+        <div>
+            <div className='takesTitle'><h3>受信ポイント一覧</h3></div>
+            <ul className='TakeList'>
+                <li className='title'>
+                    <div id="name">fromName</div>
+                    <div id="points">points</div>
+                    <div id="message">message</div>
+                </li>
                 {listTakes}
             </ul>
         </div>

@@ -10,6 +10,10 @@ import { BrowserRouter, Link, Routes, Route } from "react-router-dom";
 import Home from "./components/Home"
 import Take from "./components/Take"
 import Give from "./components/Give"
+import UserForm from './components/UserForm';
+
+
+
 
 
 function App() {
@@ -92,7 +96,7 @@ function App() {
     <BrowserRouter>
       <div className="App">
         <Routes>
-          <Route path="/" element={<Home user={user} userId={userId} mates={mates} fetchMates={fetchMates} takes={takes} users={users} gives={gives} fetchGives={fetchGives} fetchUsers={fetchUsers} setUser={setUser} setUserId={setUserId} fetchTakes={fetchTakes}/>} />
+          <Route path="/" element={<Home user={user} userId={userId} mates={mates} fetchMates={fetchMates} takes={takes}  users={users} gives={gives} fetchGives={fetchGives} fetchUsers={fetchUsers} setUser={setUser} setUserId={setUserId} fetchTakes={fetchTakes}/>} />
           <Route path="/Take" element={<Take users={users} fetchUsers={fetchUsers} setUser={setUser} setUserId={setUserId} fetchMates={fetchMates} fetchTakes={fetchTakes} fetchGives={fetchGives} user={user} userId={userId} takes={takes} />} />
           <Route path="/Give" element={<Give users={users} fetchUsers={fetchUsers} setUser={setUser} setUserId={setUserId} fetchMates={fetchMates} fetchTakes={fetchTakes} fetchGives={fetchGives} user={user} userId={userId} takes={takes} mates={mates} gives={gives}/>} />
         </Routes>

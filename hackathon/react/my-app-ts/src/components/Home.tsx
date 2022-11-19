@@ -5,6 +5,7 @@ import {userPost} from "../types/User"
 import Main from "./Main"
 import { pointPost } from '../types/Point'
 
+
 type Props = {
     user : string;
     userId : string;
@@ -98,7 +99,7 @@ const Home = (props: Props) => {
         <div className="App" style={{ display: "flex", flexDirection: "row" }}> 
             {/* style={{ display: "flex", flexDirection: "row" }} */}
             <Sidebar users={props.users} fetchUsers={props.fetchUsers} setUser={props.setUser} setUserId={props.setUserId} fetchMates={props.fetchMates} fetchTakes={props.fetchTakes} fetchGives={props.fetchGives}/>
-            <div>
+            <div className='HomeMain'>
                 <h2>Hello! {props.user}</h2>
                 <Main user={props.user} userId={props.userId} mates={props.mates} fetchMates={props.fetchMates} takes={props.takes} users={props.users} gives={props.gives} fetchGives={props.fetchGives}/>
             </div>

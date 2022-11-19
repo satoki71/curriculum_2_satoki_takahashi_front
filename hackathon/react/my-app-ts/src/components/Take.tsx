@@ -5,6 +5,7 @@ import {userPost} from '../types/User'
 import { pointPost } from '../types/Point'
 
 
+
 type Props = {
     users: userPost[];
     fetchUsers: () => void;
@@ -22,7 +23,7 @@ const Take = (props :Props) => {
   return (
     <div className="App" style={{ display: "flex", flexDirection: "row" }}>
       <Sidebar users={props.users} fetchUsers={props.fetchUsers} setUser={props.setUser} setUserId={props.setUserId} fetchMates={props.fetchMates} fetchTakes={props.fetchTakes} fetchGives={props.fetchGives}/>
-      <div>
+      <div className='TakeMain'>
         <h2>Hello! {props.user}</h2>
         <TakeList takes={props.takes} users={props.users}/>
       </div>

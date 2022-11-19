@@ -73,6 +73,8 @@ const UserSelect = (props: Props) => {
             props.fetchGives(e.value);
             setLocalStorageUserId(e.value)
             setLocalStorageUser(e.label)
+            //ユーザーを選択するとホームに戻る
+            window.location.pathname = "/"
             console.log(e.value); 
             return;
         }
@@ -81,7 +83,7 @@ const UserSelect = (props: Props) => {
 
     return (
         <div className='UserSelect'>
-            <label>ユーザー名</label>
+            <label>ユーザー選択</label>
             <Select 
             options={options}
             defaultValue={{label:'',value:''}}

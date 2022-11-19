@@ -10,8 +10,11 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+
 h2{
   margin: 20px auto;
+  padding-left: 20px;
 }
 
 ul{
@@ -83,59 +86,376 @@ ul{
 
 .UserSelect {
   padding-top: 10px;
+  /* padding-left: 30px; */
 }
 
 .UserSelect label {
   color: white;
+  margin-left: 15px;
+}
+
+
+
+
+
+
+.HomeMain{
+  width: 100%;
+}
+
+
+.matesTitle{
+  margin-top: 50px;
+  text-align: center;
+}
+
+.takesTitle{
+  margin-top: 50px;
+  padding-left: 20px;
 }
 
 .MateList{
   list-style: none;
-  min-height: 300px;
+  min-height: 250px;
   height: 100%;
-  margin:0 auto;
+  /* margin:0 auto; */
+  padding-top: 10px;
+  display:flex;
+  flex-flow: column;
+  padding-bottom: 50px;
 }
 
 .Main{
   width:100%;
+  /* background-color:#93FFAB; */
 }
+
 
 .Main .MateList .title{
   text-align: center;
   background-color: #51a8ff;
-  width:200px;
-  height:20px;
+  width:250px;
+  height:30px;
   /* padding-top:20px; */
-  margin-top:5px;
+  /* margin-top:5px; */
   border-radius: 5px;
+  margin: 5px auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
+
+.Main .MateList .title #name{
+  flex: 50%;
+  /* display: grid;
+  place-items: center; */
+}
+
+.Main .MateList .title #points{
+  flex: 50%;
+}
+
 
 .MateList .list{
   text-align: center;
-  /* margin:0 auto; */
+  margin: 5px auto;
   background-color: #cee7ff;
-  width:200px;
+  width:250px;
   height:20px;
   /* padding-top:20px; */
   margin-top:5px;
   border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.MateList .list #name{
+  flex: 50%;
+  /* display: grid;
+  place-items: center; */
+}
+
+.MateList .list #points{
+  flex: 50%;
+}
+
+
+
+
+
+
+.TakeMain{
+  width: 100%;
 }
 
 .TakeList{
-  margin:0 auto;
+  list-style: none;
+  min-height: 250px;
+  height: 100%;
+  /* margin:0 auto; */
+  padding-top: 10px;
+  display:flex;
+  flex-flow: column;
+  padding-bottom: 50px;
 }
 
-.TakeList ul{
-  list-style: none;
-  min-height: 100px;
-  height: 100%;
+.TakeList .title{
+  text-align: center;
+  background-color: #51a8ff;
+  width:100%;
+  height:30px;
+  /* padding-top:20px; */
+  /* margin-top:5px; */
+  border-radius: 5px;
+  margin: 5px auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
+.TakeList .title #name{
+  flex: 20%;
+}
+.TakeList .title #points{
+  flex: 20%;
+}
+.TakeList .title #message{
+  flex: 60%;
+}
+
+.TakeList .list{
+  text-align: center;
+  background-color: #cee7ff;
+  width:100%;
+  min-height:30px;
+  /* padding-top:20px; */
+  /* margin-top:5px; */
+  border-radius: 5px;
+  margin: 5px auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.TakeList .list #name{
+  flex: 20%;
+}
+.TakeList .list #points{
+  flex: 20%;
+}
+.TakeList .list #message{
+  flex: 60%;
+}
+
+
+
+
+
+.GiveMain{
+  width: 100%;
+}
+
+.giveFormTitle{
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding-left: 20px;
+}
+
+.PointGiveForm{
+  margin-top: 30px;
+  width:100%;
+  background-color:cadetblue;
+}
+
+.GiveForm1{
+  display:flex;
+  flex-flow: row;
+}
+
+.PointGiveForm .giveLabel{
+  margin-right: 20px;
+}
+
+.GiveForm1 .point-contents1{
+  flex :40%; 
+  /* display: grid;
+  place-items: center; */
+  justify-content: center;
+  align-items: center;
+}
+
+.GiveForm1 .point-contents2{
+  flex :60%; 
+  display: grid;
+  place-items: center;
+}
+.GiveForm1 .point-contents2 .give-input{
+  width: 70px;
+}
+
+.PointGiveForm .point-contents3{
+  margin-top: 20px;
+  margin-left: 70px;
+  margin-bottom: 10px;
+}
+
+.PointGiveForm .point-contents3 input{
+  width: 60%;
+}
+
+.pointButtonArea{
+  display: flex;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.pointButtonArea .pointButtonEnp {
+  flex: 70%;
+}
+.pointButtonArea .pointButton{
+  flex:30%;
+}
+
+.pointButton .buttonbody{
+  width: 50px;
+  border-radius: 5px;
+}
+
+.pointButton .buttonbody:hover{
+  cursor: pointer;
+  background-color: dimgrey;
+}
+
+
+
 
 .GiveList{
-  margin-top: 50px;
+  min-height: 250px;
+  height: 100%;
+  /* margin:0 auto; */
+  padding-top: 10px;
+  display:flex;
+  flex-flow: column;
+  padding-bottom: 50px;
 }
 
-.GiveEditButtonItem{
+.GiveList .title{
+  /* text-align: center; */
+  background-color: #51a8ff;
+  width:100%;
+  height:30px;
+  /* padding-top:20px; */
+  /* margin-top:5px; */
+  border-radius: 5px;
+  margin: 5px auto;
+  display: flex;
+  /* justify-content: center; */
+  align-items: center;
+}
+
+.GiveList .title #name{
+  flex: 20%;
+  display: grid;
+  place-items:center;
+}
+.GiveList .title #points{
+  flex: 15%;
+  padding-left:10px;
+  /* display: grid;
+  place-items:center; */
+}
+.GiveList .title #message{
+  flex: 65%;
+}
+
+.GiveList .list{
+  text-align: center;
+  background-color: #cee7ff;
+  width:100%;
+  min-height:30px;
+  /* padding-top:20px; */
+  /* margin-top:5px; */
+  border-radius: 5px;
+  margin: 5px auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.GiveList .list #form{
+  flex: 85%;
+}
+.GiveList .list #delete{
+  flex: 15%;
+}
+
+.PointGiveEditForm{
+  text-align: center;
+  background-color: #cee7ff;
+  width:100%;
+  min-height:30px;
+  /* padding-top:20px; */
+  /* margin-top:5px; */
+  border-radius: 5px;
+  margin: 5px auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.GiveEditForm .giveEditName{
+  flex: 25%;
+}
+
+.GiveEditForm .give-edit-contents1{
+  flex: 15%;
+}
+
+.GiveEditForm .give-edit-contents1 .point-input{
+  width: 60px;
+}
+
+
+.GiveEditForm .give-edit-contents2{
+  flex: 45%;
+}
+
+.GiveEditForm .give-edit-contents2 .message-input{
+  min-width: 80%;
+  min-height: 20px;
+}
+
+.GiveEditForm .GiveEditButtonItem{
+  flex: 15%;
+}
+
+
+.PointGiveEditForm button{
+  width: 50px;
+  border-radius: 5px;
+}
+
+.PointGiveEditForm button:hover{
+  cursor: pointer;
+  background-color:dimgrey;
+}
+
+.GiveDeleteButtom button{
+  width: 50px;
+  border-radius: 5px;
+  color: red;
+}
+
+.GiveDeleteButtom button:hover{
+  cursor: pointer;
+  background-color:hotpink;
+}
+
+
+
+
+/* .GiveEditButtonItem{
   margin-left: 20px;
 }
 
@@ -156,16 +476,8 @@ ul{
 
 .GiveDeleteButtom{
   margin-left: 20px;
-}
-.GiveDeleteButtom button{
-  /* width: 100%;
-  height:30px; */
-  /* font-size:15px; */
-  /* border:1px solid #000000; */
-  /* border-radius: 5px;
-  align-items: center; */
-  color: red;
-}
+} */
+
 
 /* .row #title {
   flex: 50%;

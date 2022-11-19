@@ -46,7 +46,7 @@ const Give = (props :Props) => {
     return (
         <div className="App" style={{ display: "flex", flexDirection: "row" }}>
             <Sidebar users={props.users} fetchUsers={props.fetchUsers} setUser={props.setUser} setUserId={props.setUserId} fetchMates={props.fetchMates} fetchTakes={props.fetchTakes} fetchGives={props.fetchGives}/>
-            <div>
+            <div className='GiveMain'>
                 <h2>Hello! {props.user}</h2>
                 <PointGiveForm mates={props.mates} userId={props.userId} fetchUserUpdate={fetchUserUpdate} fetchMates={props.fetchMates}/>
                 <GiveList gives={props.gives} users={props.users} fetchUserUpdate={fetchUserUpdate} fetchMates={props.fetchMates} fetchGives={props.fetchGives}/>

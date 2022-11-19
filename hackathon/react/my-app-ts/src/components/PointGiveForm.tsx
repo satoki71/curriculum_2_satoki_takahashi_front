@@ -106,33 +106,36 @@ const PointGiveForm = (props :Props) => {
 
     return (
         <form style={{ display: "flex", flexDirection: "column"}} onSubmit={submit} className="PointGiveForm">
-            <label>送信フォーム</label>
-            <div className="point-contents1" style={{ display: "flex", flexDirection: "row" }}>
-                <label>誰に: </label>
-                <Select 
-                options={options}
-                defaultValue={{label:'',value:''}}
-                onChange={onChange}
-                placeholder="select user"
-                isClearable={true}
-                isSearchable={true}
-                />
-                {/* <input
-                    type={"text"}
-                    value={props.name}
-                    onChange={(e) => props.setName(e.target.value)}
-                ></input> */}
-            </div>
-            <div className="point-contents2" style={{ display: "flex", flexDirection: "row" }}>
-                <label>ポイント: </label>
-                <input
-                    type={"number"}
-                    value={points}
-                    onChange={(e) => setPoints(Number(e.target.value))}
-                ></input>
+            <div className='giveFormTitle'><h3>送信フォーム</h3></div>
+            <div className='GiveForm1'>
+                <div className="point-contents1" style={{ display: "flex", flexDirection: "row" }}>
+                    <label className='giveLabel'>誰に </label>
+                    <Select 
+                    options={options}
+                    defaultValue={{label:'',value:''}}
+                    onChange={onChange}
+                    placeholder="select user"
+                    isClearable={true}
+                    isSearchable={true}
+                    />
+                    {/* <input
+                        type={"text"}
+                        value={props.name}
+                        onChange={(e) => props.setName(e.target.value)}
+                    ></input> */}
+                </div>
+                <div className="point-contents2" style={{ display: "flex", flexDirection: "row" }}>
+                    <label className='giveLabel'>ポイント </label>
+                    <input
+                        className='give-input'
+                        type={"number"}
+                        value={points}
+                        onChange={(e) => setPoints(Number(e.target.value))}
+                    ></input>
+                </div>
             </div>
             <div className="point-contents3" style={{ display: "flex", flexDirection: "row" }}>
-                <label>メッセージ: </label>
+                <label className='giveLabel'>メッセージ </label>
                 <input
                     type={"text"}
                     value={message}
@@ -142,8 +145,11 @@ const PointGiveForm = (props :Props) => {
                 ></input>
             </div>
                 
-            <div>
-                <button type={"submit"} className="userRegister">送信</button>
+            <div className='pointButtonArea'>
+                <div className='pointButtonEnp'></div>
+                <div className='pointButton'>
+                    <button type={"submit"} className="buttonbody">送信</button>
+                </div>
             </div>
         </form>
     )

@@ -64,22 +64,24 @@ const GiveEditForm = (props :Props) => {
 
 
     return (
-        <div style={{ display: "flex", flexDirection: "row"}}>
-            <label>{props.item.name}</label>
-            <form style={{ display: "flex", flexDirection: "row"}} onSubmit={submit} className="PointGiveEditForm">
+        <div style={{ display: "flex", flexDirection: "row"}} className="GiveEditForm">
+            <form onSubmit={submit} className="PointGiveEditForm">
+                <div className='giveEditName'>{props.item.name}</div>
             
                 <div className="give-edit-contents1" style={{ display: "flex", flexDirection: "row" }}>
-                    <label>ポイント: </label>
+                    {/* <label>ポイント: </label> */}
                     <input
+                        className='point-input'
                         type={"number"}
                         // value={points}
                         defaultValue={props.item.points}
                         onChange={(e) => setPoints(Number(e.target.value))}
                     ></input>
                 </div>
-                <div className="point-contents3" style={{ display: "flex", flexDirection: "row" }}>
-                    <label>メッセージ: </label>
+                <div className="give-edit-contents2" style={{ display: "flex", flexDirection: "row" }}>
+                    {/* <label>メッセージ: </label> */}
                     <input
+                        className='message-input'
                         type={"text"}
                         // value={message}
                         defaultValue={props.item.message}
