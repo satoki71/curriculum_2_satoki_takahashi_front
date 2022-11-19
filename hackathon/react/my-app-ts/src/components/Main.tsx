@@ -19,7 +19,21 @@ type Props = {
 
 const Main = (props :Props) => {
 
-    // const fetchUserUpdate = async (userId :string) => {
+
+    return (
+        <div className="Main">
+            
+            <MateList mates={props.mates}/>
+            {/* <TakeList takes={props.takes} users={props.users}/>
+            <PointGiveForm mates={props.mates} userId={props.userId} fetchUserUpdate={fetchUserUpdate} fetchMates={props.fetchMates}/>
+            <GiveList gives={props.gives} users={props.users} fetchUserUpdate={fetchUserUpdate} fetchMates={props.fetchMates} fetchGives={props.fetchGives}/> */}
+        </div>
+    )
+}
+
+export default Main
+
+// const fetchUserUpdate = async (userId :string) => {
     //     try {
     //         const res = await fetch(`https://curriculum-2-satoki-takahashi-per-dufixj5qvq-uc.a.run.app/user?userId=${userId}`, 
     //         {
@@ -39,16 +53,3 @@ const Main = (props :Props) => {
     //         console.error(err);
     //     }
     // };
-
-    return (
-        <div className="Main">
-            
-            <MateList mates={props.mates}/>
-            {/* <TakeList takes={props.takes} users={props.users}/>
-            <PointGiveForm mates={props.mates} userId={props.userId} fetchUserUpdate={fetchUserUpdate} fetchMates={props.fetchMates}/>
-            <GiveList gives={props.gives} users={props.users} fetchUserUpdate={fetchUserUpdate} fetchMates={props.fetchMates} fetchGives={props.fetchGives}/> */}
-        </div>
-    )
-}
-
-export default Main

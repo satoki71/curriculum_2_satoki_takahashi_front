@@ -26,6 +26,7 @@ ul{
   width: 250px;
   background-color: #2d445d;
 }
+/* #2d445d */
 
 .Sidebarlist {
   height: auto;
@@ -33,7 +34,7 @@ ul{
   width: 100%;
 }
  .Sidebarlist #active {
-  background-color: #3b627a;
+  background-color: #3082b5;
  }
 
 .Sidebarlist .row {
@@ -179,6 +180,15 @@ ul{
 .MateList .list #points{
   flex: 50%;
 }
+
+
+
+.MateBar{
+  width: 80%;
+  height:500px;
+  margin:0 auto;
+}
+
 
 
 
