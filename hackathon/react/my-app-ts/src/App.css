@@ -27,6 +27,13 @@ ul{
   background-color: #2d445d;
 }
 /* #2d445d */
+.sticky{
+  /* height: 100%; */
+  width: 250px;
+  position: sticky;
+  top: 0;
+  background-color: #2d445d;
+}
 
 .Sidebarlist {
   height: auto;
@@ -67,7 +74,7 @@ ul{
 }
 
 .userForm{
-  margin-top: 100px;
+  margin-top: 80px;
 }
 
 .userFormTitle{
@@ -199,7 +206,7 @@ ul{
 
 .MateBar{
   width: 80%;
-  height:500px;
+  height:auto;
   margin:0 auto;
 }
 

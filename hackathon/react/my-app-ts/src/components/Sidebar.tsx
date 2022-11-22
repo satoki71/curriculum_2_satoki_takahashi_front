@@ -65,22 +65,26 @@ const Sidebar = (props: Props) => {
 
     return (
         <div className="Sidebar">
-        <UserSelect setUser={props.setUser} setUserId={props.setUserId} users={props.users} fetchUsers={props.fetchUsers} fetchMates={props.fetchMates} fetchTakes={props.fetchTakes} fetchGives={props.fetchGives} fetchAffiliation={props.fetchAffiliation}/>
-        <ul className='Sidebarlist'>
-            {SidebarData.map((value, key) => {
-                return(
-                    <li key={key} 
-                        id={window.location.pathname == value.link ? "active" : ""} //pathnameがlinkと等しければactive :otherwise
-                        className="row" 
-                        onClick={() => {
-                            window.location.pathname = value.link; //クリックした時にlinkのエンドポイントがつく
-                        }}>    
-                        <div id="title">{value.title}</div>
-                    </li>
-                )
-            })}
-        </ul>
-        <UserForm name={name} setName={setName} affiliation={affiliation} setAffiliation={setAffiliation} onSubmit={onSubmit}/>
+          <div className="sticky">
+            <UserSelect setUser={props.setUser} setUserId={props.setUserId} users={props.users} fetchUsers={props.fetchUsers} fetchMates={props.fetchMates} fetchTakes={props.fetchTakes} fetchGives={props.fetchGives} fetchAffiliation={props.fetchAffiliation}/>
+            <ul className='Sidebarlist'>
+                {SidebarData.map((value, key) => {
+                    return(
+                        <li key={key} 
+                            id={window.location.pathname == value.link ? "active" : ""} //pathnameがlinkと等しければactive :otherwise
+                            className="row" 
+                            onClick={() => {
+                                window.location.pathname = value.link; //クリックした時にlinkのエンドポイントがつく
+                            }}>    
+                            <div id="title">{value.title}</div>
+                        </li>
+                    )
+                })}
+            </ul>
+            <div>
+              <UserForm name={name} setName={setName} affiliation={affiliation} setAffiliation={setAffiliation} onSubmit={onSubmit}/>
+            </div>
+          </div>
         </div>
     )
 }
