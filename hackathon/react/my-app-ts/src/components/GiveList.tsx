@@ -1,12 +1,12 @@
 import React from 'react'
-import {pointPost} from "../types/Point"
+import {pointGiveList} from "../types/Point"
 import GiveDeleteButtom from './GiveDeleteButtom';
 import GiveEditForm from './GiveEditForm';
 import {userPost} from "../types/User"
 import UserSelect from './UserSelect';
 
 type Props ={
-    gives: pointPost[];
+    giveList: pointGiveList[];
     users: userPost[];
     fetchUserUpdate:(userid: string) => void;
     fetchMates: (value: string) => void;
@@ -14,25 +14,25 @@ type Props ={
 }
 //form をdefaultValueにすると編集可能
 const GiveList = (props :Props) => {
-    const options = props.gives.map((item) =>{
-        const getName = props.users.filter((users) =>{
-            return item.toUserId == users.userId
-        })
+    // const options = props.gives.map((item) =>{
+    //     const getName = props.users.filter((users) =>{
+    //         return item.toUserId == users.userId
+    //     })
     
-        return(
-            {
-                id: item.id,
-                fromUserId : item.fromUserId,
-                name: getName[0].name,
-                points: item.points,
-                message: item.message,
-                toUserId: item.toUserId
-            }
-        )
+    //     return(
+    //         {
+    //             id: item.id,
+    //             fromUserId : item.fromUserId,
+    //             name: getName[0].name,
+    //             points: item.points,
+    //             message: item.message,
+    //             toUserId: item.toUserId
+    //         }
+    //     )
         
-    })
+    // })
 
-    const listGives = options.map((item) =>{
+    const listGives = props.giveList.map((item) =>{
     
         return(
             // console.log(getName)

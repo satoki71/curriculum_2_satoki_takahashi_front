@@ -15,6 +15,7 @@ type Props = {
   fetchMates: (value: string) => void;
   fetchTakes: (value: string) => void;
   fetchGives: (value: string) => void;
+  fetchAffiliation: (value: string) => void;
 }
 
 
@@ -35,7 +36,7 @@ const Sidebar = (props: Props) => {
           return;
         }
         if (!affiliation) {
-            alert("Please enter affiliation");
+            alert("Please select affiliation");
             return;
         }
     
@@ -64,7 +65,7 @@ const Sidebar = (props: Props) => {
 
     return (
         <div className="Sidebar">
-        <UserSelect setUser={props.setUser} setUserId={props.setUserId} users={props.users} fetchUsers={props.fetchUsers} fetchMates={props.fetchMates} fetchTakes={props.fetchTakes} fetchGives={props.fetchGives}/>
+        <UserSelect setUser={props.setUser} setUserId={props.setUserId} users={props.users} fetchUsers={props.fetchUsers} fetchMates={props.fetchMates} fetchTakes={props.fetchTakes} fetchGives={props.fetchGives} fetchAffiliation={props.fetchAffiliation}/>
         <ul className='Sidebarlist'>
             {SidebarData.map((value, key) => {
                 return(

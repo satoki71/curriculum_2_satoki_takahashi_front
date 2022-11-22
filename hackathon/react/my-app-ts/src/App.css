@@ -110,6 +110,14 @@ ul{
   width: 100%;
 }
 
+.UserAffiliationName{
+  background-color: #3082b5;
+  color: white;
+  height: 40px;
+  text-align: center;
+  font-size: 30px;
+}
+
 
 .matesTitle{
   margin-top: 50px;

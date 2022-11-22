@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import {userPost} from "../types/User"
 import Main from "./Main"
 import { pointPost } from '../types/Point'
+import { affiliationPost } from '../types/Affiliation';
 
 
 import {
@@ -35,18 +36,35 @@ type Props = {
     fetchMates: (value: string) => void;
     takes: pointPost[];
     users: userPost[];
-    gives: pointPost[];
+    
     fetchGives: (value: string) => void;
     fetchUsers: () => void;
     setUser: Dispatch<SetStateAction<string>>;
     setUserId: Dispatch<SetStateAction<string>>;   
     fetchTakes: (value: string) => void;
+    fetchAffiliation: (value: string) => void;
+    affiliationName: string;
 }
 
 const Home = (props: Props) => {
 
+    // const [affiliationName, setAffiliationName] = useState("");
 
+    // const getAffiliationName = (affiliation: affiliationPost[]) => {
+    //     if(props.affiliation[0] != null){
+    //         const affiliationName = affiliation[0].name
+    //         setAffiliationName(affiliationName)
+            
+    //         return
+    //     }
+    //     console.log(affiliation)
+    // }
 
+    // useEffect(() => {
+        
+    //     getAffiliationName(props.affiliation)
+    // },[])
+    
     const labels = props.mates.map((item) =>{
         return(
             item.name
@@ -85,8 +103,11 @@ const Home = (props: Props) => {
     return (
         <div className="App" style={{ display: "flex", flexDirection: "row" }}> 
             {/* style={{ display: "flex", flexDirection: "row" }} */}
-            <Sidebar users={props.users} fetchUsers={props.fetchUsers} setUser={props.setUser} setUserId={props.setUserId} fetchMates={props.fetchMates} fetchTakes={props.fetchTakes} fetchGives={props.fetchGives}/>
+            <Sidebar users={props.users} fetchUsers={props.fetchUsers} setUser={props.setUser} setUserId={props.setUserId} fetchMates={props.fetchMates} fetchTakes={props.fetchTakes} fetchGives={props.fetchGives} fetchAffiliation={props.fetchAffiliation}/>
             <div className='HomeMain'>
+                
+                <h3 className='UserAffiliationName'>{props.affiliationName}</h3>
+                
                 <h2>Hello! {props.user}</h2>
                 <Main mates={props.mates} />
                 

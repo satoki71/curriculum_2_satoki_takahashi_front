@@ -14,15 +14,18 @@ type Props={
     fetchMates: (value: string) => void;
     fetchTakes: (value: string) => void;
     fetchGives: (value: string) => void;
+    fetchAffiliation: (value: string) => void;
+    affiliationName: string;
 }
 
 const Setting = (props :Props) => {
   return (
     <div className="App" style={{ display: "flex", flexDirection: "row" }}>
-        <Sidebar users={props.users} fetchUsers={props.fetchUsers} setUser={props.setUser} setUserId={props.setUserId} fetchMates={props.fetchMates} fetchTakes={props.fetchTakes} fetchGives={props.fetchGives}/>
+        <Sidebar users={props.users} fetchUsers={props.fetchUsers} setUser={props.setUser} setUserId={props.setUserId} fetchMates={props.fetchMates} fetchTakes={props.fetchTakes} fetchGives={props.fetchGives} fetchAffiliation={props.fetchAffiliation}/>
         <div className='GiveMain'>
-            <h2>Hello! {props.user}</h2>
-            <UserEdit user={props.user} userId={props.userId} fetchUsers={props.fetchUsers} setUser={props.setUser} fetchMates={props.fetchMates} fetchTakes={props.fetchTakes} fetchGives={props.fetchGives}/>
+          <h3 className='UserAffiliationName'>{props.affiliationName}</h3>
+          <h2>Hello! {props.user}</h2>
+          <UserEdit user={props.user} userId={props.userId} fetchUsers={props.fetchUsers} setUser={props.setUser} fetchMates={props.fetchMates} fetchTakes={props.fetchTakes} fetchGives={props.fetchGives}/>
         </div>
     </div>
   )

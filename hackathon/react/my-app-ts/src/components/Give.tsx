@@ -1,6 +1,6 @@
 import React, {Dispatch, SetStateAction} from 'react'
 import {userPost} from "../types/User"
-import { pointPost } from '../types/Point'
+import { pointPost, pointGiveList} from '../types/Point'
 import Sidebar from './Sidebar'
 import PointGiveForm from "./PointGiveForm"
 import GiveList from "./GiveList"
@@ -17,7 +17,9 @@ type Props = {
     userId : string;
     takes: pointPost[];
     mates: userPost[];
-    gives: pointPost[];
+    giveList: pointGiveList[];
+    fetchAffiliation: (value: string) => void;
+    affiliationName: string;
 }
 
 
@@ -45,11 +47,12 @@ const Give = (props :Props) => {
 
     return (
         <div className="App" style={{ display: "flex", flexDirection: "row" }}>
-            <Sidebar users={props.users} fetchUsers={props.fetchUsers} setUser={props.setUser} setUserId={props.setUserId} fetchMates={props.fetchMates} fetchTakes={props.fetchTakes} fetchGives={props.fetchGives}/>
+            <Sidebar users={props.users} fetchUsers={props.fetchUsers} setUser={props.setUser} setUserId={props.setUserId} fetchMates={props.fetchMates} fetchTakes={props.fetchTakes} fetchGives={props.fetchGives} fetchAffiliation={props.fetchAffiliation}/>
             <div className='GiveMain'>
+                <h3 className='UserAffiliationName'>{props.affiliationName}</h3>
                 <h2>Hello! {props.user}</h2>
                 <PointGiveForm mates={props.mates} userId={props.userId} fetchUserUpdate={fetchUserUpdate} fetchMates={props.fetchMates} fetchGives={props.fetchGives}/>
-                <GiveList gives={props.gives} users={props.users} fetchUserUpdate={fetchUserUpdate} fetchMates={props.fetchMates} fetchGives={props.fetchGives}/>
+                <GiveList giveList={props.giveList} users={props.users} fetchUserUpdate={fetchUserUpdate} fetchMates={props.fetchMates} fetchGives={props.fetchGives}/>
             </div>
         </div>
     )

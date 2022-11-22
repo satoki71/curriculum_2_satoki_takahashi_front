@@ -15,6 +15,7 @@ type Props = {
     fetchMates: (value: string) => void;
     fetchTakes: (value: string) => void;
     fetchGives: (value: string) => void;
+    fetchAffiliation: (value: string) => void;
 };
 
 
@@ -38,6 +39,7 @@ const UserSelect = (props: Props) => {
             props.fetchMates(getLocalUserId);
             props.fetchTakes(getLocalUserId);
             props.fetchGives(getLocalUserId);
+            props.fetchAffiliation(getLocalUserId)
         }
         if(getLocalUser!=null) {
             props.setUser(getLocalUser)
@@ -73,6 +75,7 @@ const UserSelect = (props: Props) => {
             props.fetchGives(e.value);
             setLocalStorageUserId(e.value)
             setLocalStorageUser(e.label)
+            props.fetchAffiliation(e.value)
             //ユーザーを選択するとホームに戻る
             window.location.pathname = "/"
             console.log(e.value); 

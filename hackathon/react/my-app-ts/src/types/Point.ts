@@ -8,6 +8,15 @@ export type pointPost = {
     toUserId: string;
 };
 
+export type pointGiveList = {
+    id: string,
+    fromUserId : string,
+    name: string,
+    points: number,
+    message: string,
+    toUserId: string
+}
+
 export type GiveEditOption = {
     id: string,
     fromUserId : string,

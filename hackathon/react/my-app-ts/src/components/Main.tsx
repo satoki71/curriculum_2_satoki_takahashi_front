@@ -33,6 +33,9 @@ const Main = (props :Props) => {
 
 export default Main
 
+
+
+
 // const fetchUserUpdate = async (userId :string) => {
     //     try {
     //         const res = await fetch(`https://curriculum-2-satoki-takahashi-per-dufixj5qvq-uc.a.run.app/user?userId=${userId}`, 
