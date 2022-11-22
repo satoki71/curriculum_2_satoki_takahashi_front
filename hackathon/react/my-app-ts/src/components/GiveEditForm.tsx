@@ -85,7 +85,7 @@ const GiveEditForm = (props :Props) => {
                         type={"text"}
                         // value={message}
                         defaultValue={props.item.message}
-                        // placeholder="Thank you"
+                        placeholder="Thank you"
                         onChange={(e) => setMessage(e.target.value)}
                     ></input>
                 </div>

@@ -9,6 +9,7 @@ type Props ={
     userId: string;
     fetchUserUpdate:(userid: string) => void;
     fetchMates: (value: string) => void;
+    fetchGives: (value: string) => void;
 }
 
 // type PointGive = {
@@ -71,6 +72,7 @@ const PointGiveForm = (props :Props) => {
             setMessage("Thank you");
             setToUserId("");
             props.fetchMates(fromUserId);
+            props.fetchGives(fromUserId);
         } catch (err) {
           console.error(err);
         }
@@ -111,12 +113,12 @@ const PointGiveForm = (props :Props) => {
                 <div className="point-contents1" style={{ display: "flex", flexDirection: "row" }}>
                     <label className='giveLabel'>誰に </label>
                     <Select 
-                    options={options}
-                    defaultValue={{label:'',value:''}}
-                    onChange={onChange}
-                    placeholder="select user"
-                    isClearable={true}
-                    isSearchable={true}
+                        options={options}
+                        defaultValue={{label:'',value:''}}
+                        onChange={onChange}
+                        placeholder="select user"
+                        isClearable={true}
+                        isSearchable={true}
                     />
                     {/* <input
                         type={"text"}

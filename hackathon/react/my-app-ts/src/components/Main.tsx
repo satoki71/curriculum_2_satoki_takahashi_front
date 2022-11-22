@@ -7,14 +7,14 @@ import TakeList from "./TakeList"
 import GiveList from "./GiveList"
 
 type Props = {
-    user : string;
-    userId : string;
+    // user : string;
+    // userId : string;
     mates: userPost[];
-    fetchMates: (value: string) => void;
-    takes: pointPost[];
-    users: userPost[];
-    gives: pointPost[];
-    fetchGives: (value: string) => void;
+    // fetchMates: (value: string) => void;
+    // takes: pointPost[];
+    // users: userPost[];
+    // gives: pointPost[];
+    // fetchGives: (value: string) => void;
 }
 
 const Main = (props :Props) => {

@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import {userPost} from "../types/User"
 import Main from "./Main"
 import { pointPost } from '../types/Point'
-import MateBar from './MateBar'
+
 
 import {
     Chart as ChartJS,
@@ -88,7 +88,7 @@ const Home = (props: Props) => {
             <Sidebar users={props.users} fetchUsers={props.fetchUsers} setUser={props.setUser} setUserId={props.setUserId} fetchMates={props.fetchMates} fetchTakes={props.fetchTakes} fetchGives={props.fetchGives}/>
             <div className='HomeMain'>
                 <h2>Hello! {props.user}</h2>
-                <Main user={props.user} userId={props.userId} mates={props.mates} fetchMates={props.fetchMates} takes={props.takes} users={props.users} gives={props.gives} fetchGives={props.fetchGives}/>
+                <Main mates={props.mates} />
                 
                 <div className="MateBar"> 
                     {/* style={divStyle} */}

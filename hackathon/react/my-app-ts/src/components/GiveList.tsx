@@ -36,7 +36,7 @@ const GiveList = (props :Props) => {
     
         return(
             // console.log(getName)
-            <li key={item.id} className='list'>
+            <li key={(item).id} className='list'>
                 <div id="form">
                     <GiveEditForm item={item} fetchUserUpdate={props.fetchUserUpdate} fetchMates={props.fetchMates}/>
                 </div>
@@ -47,6 +47,7 @@ const GiveList = (props :Props) => {
         )
         
     })
+    
     // <GiveEditForm item={item} fetchUserUpdate={props.fetchUserUpdate} fetchMates={props.fetchMates}/>
 
     return (
