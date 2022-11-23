@@ -547,6 +547,10 @@ ul{
   align-items: center;
 }
 
+.NameEditForm .nameEditIcon{
+  margin-right: 10px;
+}
+
 .NameEditForm .nameEditLabel{
   margin-right: 20px;
 }

@@ -1,4 +1,5 @@
 import React, {useState, Dispatch, SetStateAction} from 'react'
+import TagFacesIcon from '@mui/icons-material/TagFaces';
 
 type Props={
     user : string;
@@ -74,6 +75,9 @@ const UserEdit = (props :Props) => {
             <form style={{ display: "flex", flexDirection: "row"}} onSubmit={submit} className="NameEditForm">
             
                 <div className="name-edit-content" style={{ display: "flex", flexDirection: "row" }}>
+                    <div className='nameEditIcon'>
+                        <TagFacesIcon />
+                    </div>
                     <div className='nameEditLabel'>Your name</div>
                     {/* <label>メッセージ: </label> */}
                     <input
