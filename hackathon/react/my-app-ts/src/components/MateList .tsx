@@ -1,14 +1,15 @@
 import React from 'react'
 import {userPost} from "../types/User"
+import EmojiEventsOutlinedIcon from '@mui/icons-material/EmojiEventsOutlined';
 
 type Props ={
     mates: userPost[];
 }
 
 const MateList  = (props :Props) => {
-    const listUsers = props.mates.map((item) =>{
+    const listUsers = props.mates.map((item, key) =>{
         return(
-            <li key={item.userId} className='list'>
+            <li key={key} className='list'>
                 <div id="name">{item.name}</div>
                 <div id="points">{item.points}</div>
             </li>
@@ -18,13 +19,18 @@ const MateList  = (props :Props) => {
     return (
         <div>
             <div className='matesTitle'><h3>メンバーポイント一覧</h3></div>
-            <ul className='MateList'>
-                <li className='title'>
-                    <div id="name">name</div>
-                    <div id="points">points</div>
-                </li>
-                {listUsers}
-            </ul>
+            <div className='MateBox'>
+                <ul className='MateList'>
+                    <li className='title'>
+                        <div className='topIcon'>
+                            <EmojiEventsOutlinedIcon />
+                        </div>
+                        <div id="name">name</div>
+                        <div id="points">points</div>
+                    </li>
+                    {listUsers}
+                </ul>
+            </div>
         </div>
     )
 }

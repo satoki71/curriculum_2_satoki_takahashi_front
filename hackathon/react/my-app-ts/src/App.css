@@ -146,7 +146,6 @@ ul{
 
 
 
-
 .HomeMain{
   width: 100%;
 }
@@ -172,6 +171,16 @@ ul{
   padding-left: 20px;
 }
 
+/* .MateBox{
+  position: relative;
+} */
+
+.MateBox .topIcon{
+  position: absolute;
+  top:130%;
+  left: -25px;
+}
+
 .MateList{
   list-style: none;
   min-height: 250px;
@@ -190,6 +199,7 @@ ul{
 
 
 .Main .MateList .title{
+  position: relative;
   text-align: center;
   background-color: #51a8ff;
   width:250px;
@@ -213,6 +223,9 @@ ul{
   flex: 50%;
 }
 
+.MateList li:nth-child(2){
+  color: red;
+}
 
 .MateList .list{
   text-align: center;
