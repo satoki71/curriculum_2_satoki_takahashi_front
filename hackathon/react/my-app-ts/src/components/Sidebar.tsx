@@ -96,6 +96,7 @@ const Sidebar = (props: Props) => {
                             onClick={() => {
                                 window.location.pathname = value.link; //クリックした時にlinkのエンドポイントがつく
                             }}>    
+                            <div id="icon">{value.icon}</div>
                             <div id="title">{value.title}</div>
                         </li>
                     )
