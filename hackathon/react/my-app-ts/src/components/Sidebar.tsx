@@ -4,7 +4,8 @@ import UserForm from "./UserForm"
 import UserSelect from "./UserSelect"
 import { useState, useEffect } from "react";
 import {userPost} from "../types/User"
-
+import AffiliationForm from './AffiliationForm';
+import {affiliationPost} from '../types/Affiliation'
 
 
 type Props = {
@@ -20,6 +21,25 @@ type Props = {
 
 
 const Sidebar = (props: Props) => {
+    const [affiliations, setAffiliations] = useState<affiliationPost[]>([]);
+
+    const fetchAffiliations = async () => {
+      try {
+          const res = await fetch("https://curriculum-2-satoki-takahashi-per-dufixj5qvq-uc.a.run.app/affiliation", {method: 'GET'});
+          if (!res.ok) {
+          throw Error(`Failed to fetch users: ${res.status}`);
+          }
+      
+          const affiliations = await res.json();
+          setAffiliations(affiliations);
+      } catch (err) {
+          console.error(err);
+      }
+    };
+
+    useEffect(() => {
+        fetchAffiliations()
+    },[])
 
     const [name, setName] = useState("");
     const [affiliation, setAffiliation] = useState("");
@@ -82,7 +102,10 @@ const Sidebar = (props: Props) => {
                 })}
             </ul>
             <div>
-              <UserForm name={name} setName={setName} affiliation={affiliation} setAffiliation={setAffiliation} onSubmit={onSubmit}/>
+              <UserForm name={name} setName={setName} affiliation={affiliation} setAffiliation={setAffiliation} onSubmit={onSubmit} affiliations={affiliations}/>
+            </div>
+            <div>
+              <AffiliationForm fetchAffiliations={fetchAffiliations}/>
             </div>
           </div>
         </div>

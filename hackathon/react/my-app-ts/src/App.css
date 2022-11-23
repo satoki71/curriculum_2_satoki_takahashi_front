@@ -15,6 +15,8 @@
 h2{
   margin: 20px auto;
   padding-left: 20px;
+  position: sticky;
+  top: 5px;
 }
 
 ul{
@@ -74,11 +76,12 @@ ul{
 }
 
 .userForm{
-  margin-top: 80px;
+  margin-top: 50px;
 }
 
 .userFormTitle{
   color: white;
+  margin-left: 15px;
 }
 
 .Sidebar .input-contents1{
@@ -109,6 +112,28 @@ ul{
 }
 
 
+.AffiliationForm{
+  margin-top:30px;
+}
+
+.affiliationName{
+  color:white;
+  margin-left: 15px;
+}
+
+.AffiliationButtonItem .affiliationRegister{
+  margin-left:20px;
+  width: 50px;
+  border-radius: 5px;
+}
+
+.AffiliationButtonItem .affiliationRegister:hover{
+  cursor: pointer;
+  background-color: dimgrey;
+}
+
+
+
 
 
 
@@ -123,6 +148,8 @@ ul{
   height: 40px;
   text-align: center;
   font-size: 30px;
+  position: sticky;
+  top: 0;
 }
 
 

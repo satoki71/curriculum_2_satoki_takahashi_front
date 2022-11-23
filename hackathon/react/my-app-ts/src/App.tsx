@@ -22,7 +22,7 @@ function App() {
 
   const [users, setUsers] = useState<userPost[]>([]);
 
-  const fetchUsers = async () => {
+  const fetchUsers = async() => {
     try {
         const res = await fetch("https://curriculum-2-satoki-takahashi-per-dufixj5qvq-uc.a.run.app/users", {method: 'GET'});
         if (!res.ok) {

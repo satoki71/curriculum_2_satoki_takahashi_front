@@ -28,7 +28,10 @@ const Take = (props :Props) => {
       <div className='TakeMain'>
         <h3 className='UserAffiliationName'>{props.affiliationName}</h3>
         <h2>Hello! {props.user}</h2>
-        <TakeList takes={props.takes} users={props.users}/>
+        {props.takes[0]!=null && props.users[0]!=null ?
+          (<TakeList takes={props.takes} users={props.users}/>)
+          :null
+        }
       </div>
     </div>
   )

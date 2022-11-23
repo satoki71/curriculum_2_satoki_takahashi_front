@@ -10,6 +10,7 @@ type Props = {
     affiliation: string;
     setAffiliation: Dispatch<SetStateAction<string>>;
     onSubmit: (name: string, affiliation: string) => void;
+    affiliations: affiliationPost[];
 };
 
 
@@ -20,25 +21,6 @@ const UserForm = (props: Props) => {
         props.onSubmit(props.name, props.affiliation);
     };
 
-    const [affiliations, setAffiliations] = useState<affiliationPost[]>([]);
-
-    const fetchAffiliations = async () => {
-      try {
-          const res = await fetch("https://curriculum-2-satoki-takahashi-per-dufixj5qvq-uc.a.run.app/affiliation", {method: 'GET'});
-          if (!res.ok) {
-          throw Error(`Failed to fetch users: ${res.status}`);
-          }
-      
-          const affiliations = await res.json();
-          setAffiliations(affiliations);
-      } catch (err) {
-          console.error(err);
-      }
-    };
-
-    useEffect(() => {
-        fetchAffiliations()
-    },[])
 
     function convertToOption(affiliations: affiliationPost): AffiliationOption {
         return {
@@ -47,7 +29,7 @@ const UserForm = (props: Props) => {
         };
     }
 
-    const options = affiliations.map(convertToOption)
+    const options = props.affiliations.map(convertToOption)
 
     const onChange = (e: { label: string; value: string; } | null) => {
         if (e == null) {
@@ -95,7 +77,6 @@ const UserForm = (props: Props) => {
                 <button type={"submit"} className="userRegister">登録</button>
             </div>
         </form>
-        
     );
 };
 
