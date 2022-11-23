@@ -151,13 +151,6 @@ function App() {
       </div>
     </BrowserRouter>
 
-    // <Home />
-
-    // <div className="App" style={{ display: "flex", flexDirection: "row" }}> 
-    // {/* style={{ display: "flex", flexDirection: "row" }} */}
-    //   <Sidebar users={users} fetchUsers={fetchUsers} setUser={setUser} setUserId={setUserId} fetchMates={fetchMates} fetchTakes={fetchTakes} fetchGives={fetchGives}/>
-    //   <Main user={user} userId={userId} mates={mates} fetchMates={fetchMates} takes={takes} users={users} gives={gives} fetchGives={fetchGives}/>
-    // </div>
   );
 }
 

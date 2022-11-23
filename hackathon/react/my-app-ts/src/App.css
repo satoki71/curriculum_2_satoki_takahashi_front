@@ -559,6 +559,18 @@ ul{
   margin-left: 50px;
 }
 
+.NameEditForm .userRegister{
+  margin-left:20px;
+  width: 50px;
+  border-radius: 5px;
+}
+
+.NameEditForm .userRegister:hover{
+  cursor: pointer;
+  background-color: dimgrey;
+}
+
+
 /* .GiveEditButtonItem{
   margin-left: 20px;
 }

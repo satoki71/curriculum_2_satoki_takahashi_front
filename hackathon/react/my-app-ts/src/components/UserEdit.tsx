@@ -20,14 +20,6 @@ const UserEdit = (props :Props) => {
     const [newName, setNewName] = useState(props.user);
     const onSubmit = async(userId: string, name: string) => {
         
-        // if (points==null) {
-        //   alert("Please enter points");
-        //   return;
-        // }
-        // if (points<=0) {
-        //     alert("Please enter points");
-        //     return;
-        // }
     
         if (name.length > 50) {
           alert("Please enter a name shorter than 50 characters");

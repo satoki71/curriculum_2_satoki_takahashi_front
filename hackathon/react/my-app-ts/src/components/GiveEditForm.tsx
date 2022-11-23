@@ -25,7 +25,7 @@ const GiveEditForm = (props :Props) => {
             return;
         }
     
-        // if (pointGive.message.length > 50) {
+        // if (message.length > 50) {
         //   alert("Please enter a name shorter than 50 characters");
         //   return;
         // }

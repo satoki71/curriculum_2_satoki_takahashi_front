@@ -47,23 +47,6 @@ type Props = {
 }
 
 const Home = (props: Props) => {
-
-    // const [affiliationName, setAffiliationName] = useState("");
-
-    // const getAffiliationName = (affiliation: affiliationPost[]) => {
-    //     if(props.affiliation[0] != null){
-    //         const affiliationName = affiliation[0].name
-    //         setAffiliationName(affiliationName)
-            
-    //         return
-    //     }
-    //     console.log(affiliation)
-    // }
-
-    // useEffect(() => {
-        
-    //     getAffiliationName(props.affiliation)
-    // },[])
     
     const labels = props.mates.map((item) =>{
         return(

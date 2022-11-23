@@ -64,12 +64,7 @@ const UserForm = (props: Props) => {
                 isClearable={true}
                 isSearchable={true}
                 />
-                {/* <input
-                    type={"text"}
-                    style={{ marginBottom: 20 }}
-                    value={props.affiliation}
-                    onChange={(e) => props.setAffiliation(e.target.value)}
-                ></input> */}
+                
             </div>
             
             

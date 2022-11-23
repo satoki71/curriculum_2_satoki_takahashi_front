@@ -14,23 +14,7 @@ type Props ={
 }
 //form をdefaultValueにすると編集可能
 const GiveList = (props :Props) => {
-    // const options = props.gives.map((item) =>{
-    //     const getName = props.users.filter((users) =>{
-    //         return item.toUserId == users.userId
-    //     })
     
-    //     return(
-    //         {
-    //             id: item.id,
-    //             fromUserId : item.fromUserId,
-    //             name: getName[0].name,
-    //             points: item.points,
-    //             message: item.message,
-    //             toUserId: item.toUserId
-    //         }
-    //     )
-        
-    // })
 
     const listGives = props.giveList.map((item) =>{
     
