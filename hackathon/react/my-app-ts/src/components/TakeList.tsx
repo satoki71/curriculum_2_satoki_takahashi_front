@@ -33,7 +33,7 @@ const TakeList = (props :Props) => {
             <div className='takesTitle'><h3>受信ポイント一覧</h3></div>
             <ul className='TakeList'>
                 <li className='title'>
-                    <div id="name">fromName</div>
+                    <div id="name">from</div>
                     <div id="points">points</div>
                     <div id="message">message</div>
                 </li>
