@@ -14,11 +14,63 @@ import Give from "./components/Give"
 import UserForm from './components/UserForm';
 import Setting from './components/Setting';
 
-
+import Login from './components/Login'
+import { LoginRounded } from '@mui/icons-material';
 
 
 
 function App() {
+
+  const setLocalStorageUserId = (userId: string) => {
+      localStorage.setItem('userId', userId);
+  }
+
+  const setLocalStorageUser = (user: string) => {
+      localStorage.setItem('user', user);
+  }
+
+  const getLocalUserId = localStorage.getItem('userId');
+  const getLocalUser = localStorage.getItem('user');
+
+
+  useEffect(() => {
+      fetchUsers()
+      if(getLocalUserId!=null) {
+          setUserId(getLocalUserId)
+          fetchMates(getLocalUserId);
+          fetchTakes(getLocalUserId);
+          fetchGives(getLocalUserId);
+          fetchAffiliation(getLocalUserId)
+      }
+      if(getLocalUser!=null) {
+          setUser(getLocalUser)
+      } 
+  },[])
+
+
+
+
+  const [affiliations, setAffiliations] = useState<affiliationPost[]>([]);
+
+  const fetchAffiliations = async () => {
+    try {
+        const res = await fetch("https://curriculum-2-satoki-takahashi-per-dufixj5qvq-uc.a.run.app/affiliation", {method: 'GET'});
+        if (!res.ok) {
+        throw Error(`Failed to fetch users: ${res.status}`);
+        }
+    
+        const affiliations = await res.json();
+        setAffiliations(affiliations);
+    } catch (err) {
+        console.error(err);
+    }
+  };
+
+  useEffect(() => {
+      fetchAffiliations()
+  },[])
+
+
 
   const [users, setUsers] = useState<userPost[]>([]);
 
@@ -143,10 +195,11 @@ function App() {
     <BrowserRouter>
       <div className="App">
         <Routes>
-          <Route path="/" element={<Home user={user} userId={userId} mates={mates} fetchMates={fetchMates} takes={takes}  users={users} fetchGives={fetchGives} fetchUsers={fetchUsers} setUser={setUser} setUserId={setUserId} fetchTakes={fetchTakes} fetchAffiliation={fetchAffiliation} affiliationName={affiliationName}/>} />
-          <Route path="/Take" element={<Take users={users} fetchUsers={fetchUsers} setUser={setUser} setUserId={setUserId} fetchMates={fetchMates} fetchTakes={fetchTakes} fetchGives={fetchGives} user={user} userId={userId} takes={takes} fetchAffiliation={fetchAffiliation} affiliationName={affiliationName}/>} />
-          <Route path="/Give" element={<Give users={users} fetchUsers={fetchUsers} setUser={setUser} setUserId={setUserId} fetchMates={fetchMates} fetchTakes={fetchTakes} fetchGives={fetchGives} user={user} userId={userId} takes={takes} mates={mates} giveList={giveList} fetchAffiliation={fetchAffiliation} affiliationName={affiliationName}/>} />
-          <Route path="/Setting" element={<Setting users={users} setUserId={setUserId} user={user} userId={userId} fetchUsers={fetchUsers} setUser={setUser} fetchMates={fetchMates} fetchTakes={fetchTakes} fetchGives={fetchGives} fetchAffiliation={fetchAffiliation} affiliationName={affiliationName}/>} />
+          <Route path="/login" element={<Login setUser={setUser} setUserId={setUserId} users={users} fetchUsers={fetchUsers} fetchMates={fetchMates} fetchTakes={fetchTakes} fetchGives={fetchGives} fetchAffiliation={fetchAffiliation} affiliations={affiliations} fetchAffiliations={fetchAffiliations} setLocalStorageUserId={setLocalStorageUserId} setLocalStorageUser={setLocalStorageUser}/>} />
+          <Route path="/" element={<Home user={user} userId={userId} mates={mates} fetchMates={fetchMates} takes={takes}  users={users} fetchGives={fetchGives} fetchUsers={fetchUsers} setUser={setUser} setUserId={setUserId} fetchTakes={fetchTakes} fetchAffiliation={fetchAffiliation} affiliationName={affiliationName} affiliations={affiliations} fetchAffiliations={fetchAffiliations}/>} />
+          <Route path="/Take" element={<Take users={users} fetchUsers={fetchUsers} setUser={setUser} setUserId={setUserId} fetchMates={fetchMates} fetchTakes={fetchTakes} fetchGives={fetchGives} user={user} userId={userId} takes={takes} fetchAffiliation={fetchAffiliation} affiliationName={affiliationName} affiliations={affiliations} fetchAffiliations={fetchAffiliations}/>} />
+          <Route path="/Give" element={<Give users={users} fetchUsers={fetchUsers} setUser={setUser} setUserId={setUserId} fetchMates={fetchMates} fetchTakes={fetchTakes} fetchGives={fetchGives} user={user} userId={userId} takes={takes} mates={mates} giveList={giveList} fetchAffiliation={fetchAffiliation} affiliationName={affiliationName} affiliations={affiliations} fetchAffiliations={fetchAffiliations}/>} />
+          <Route path="/Setting" element={<Setting users={users} setUserId={setUserId} user={user} userId={userId} fetchUsers={fetchUsers} setUser={setUser} fetchMates={fetchMates} fetchTakes={fetchTakes} fetchGives={fetchGives} fetchAffiliation={fetchAffiliation} affiliationName={affiliationName} affiliations={affiliations} fetchAffiliations={fetchAffiliations}/>} />
         </Routes>
       </div>
     </BrowserRouter>

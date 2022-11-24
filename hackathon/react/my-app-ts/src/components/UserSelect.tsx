@@ -16,35 +16,38 @@ type Props = {
     fetchTakes: (value: string) => void;
     fetchGives: (value: string) => void;
     fetchAffiliation: (value: string) => void;
+
+    setLocalStorageUserId: (userId: string) => void;
+    setLocalStorageUser: (user: string) => void;
 };
 
 
 const UserSelect = (props: Props) => {
-    const setLocalStorageUserId = (userId: string) => {
-        localStorage.setItem('userId', userId);
-    }
+    // const setLocalStorageUserId = (userId: string) => {
+    //     localStorage.setItem('userId', userId);
+    // }
 
-    const setLocalStorageUser = (user: string) => {
-        localStorage.setItem('user', user);
-    }
+    // const setLocalStorageUser = (user: string) => {
+    //     localStorage.setItem('user', user);
+    // }
     
-    const getLocalUserId = localStorage.getItem('userId');
-    const getLocalUser = localStorage.getItem('user');
+    // const getLocalUserId = localStorage.getItem('userId');
+    // const getLocalUser = localStorage.getItem('user');
     
 
-    useEffect(() => {
-        props.fetchUsers()
-        if(getLocalUserId!=null) {
-            props.setUserId(getLocalUserId)
-            props.fetchMates(getLocalUserId);
-            props.fetchTakes(getLocalUserId);
-            props.fetchGives(getLocalUserId);
-            props.fetchAffiliation(getLocalUserId)
-        }
-        if(getLocalUser!=null) {
-            props.setUser(getLocalUser)
-        } 
-    },[])
+    // useEffect(() => {
+    //     props.fetchUsers()
+    //     if(getLocalUserId!=null) {
+    //         props.setUserId(getLocalUserId)
+    //         props.fetchMates(getLocalUserId);
+    //         props.fetchTakes(getLocalUserId);
+    //         props.fetchGives(getLocalUserId);
+    //         props.fetchAffiliation(getLocalUserId)
+    //     }
+    //     if(getLocalUser!=null) {
+    //         props.setUser(getLocalUser)
+    //     } 
+    // },[])
 
 
     function convertToUser(args: UserOption): UserName | null {
@@ -73,8 +76,8 @@ const UserSelect = (props: Props) => {
             props.fetchTakes(e.value);
             props.fetchMates(e.value);
             props.fetchGives(e.value);
-            setLocalStorageUserId(e.value)
-            setLocalStorageUser(e.label)
+            props.setLocalStorageUserId(e.value)
+            props.setLocalStorageUser(e.label)
             props.fetchAffiliation(e.value)
             //ユーザーを選択するとホームに戻る
             window.location.pathname = "/"
@@ -86,112 +89,24 @@ const UserSelect = (props: Props) => {
 
     return (
         <div className='UserSelect'>
-            <label>ユーザー選択</label>
-            <Select 
-            options={options}
-            defaultValue={{label:'',value:''}}
-            onChange={onChange}
-            placeholder="please select user"
-            isClearable={true}
-            isSearchable={true}
-            />
+            <div className='UserSelectLabel'>
+                <label>ユーザー選択</label>
+            </div>
+            <div className='UserSelectBox'>
+                <Select 
+                options={options}
+                defaultValue={{label:'',value:''}}
+                onChange={onChange}
+                placeholder="please select user"
+                isClearable={true}
+                isSearchable={true}
+                className='Box'
+                />
+            </div>
         </div>
     )
 }
 
 export default UserSelect
 
-//console.log(value); 
 
-// export type UseSelectProps = {
-//     selected: userPost | null;
-//     setUser: (user: userPost | null) => void;
-// };
-
-// export type userPost = {
-//     userId: string
-//     name: string
-//     affiliationId: string
-//     points: number
-// }
-
-// export const [users, setUsers] = useState<userPost[]>([]);
-
-// const fetchUsers = async () => {
-// try {
-//     const res = await fetch("http://localhost:8000/users", {method: 'GET'});
-//     if (!res.ok) {
-//     throw Error(`Failed to fetch users: ${res.status}`);
-//     }
-
-//     const users = await res.json();
-//     setUsers(users);
-// } catch (err) {
-//     console.error(err);
-// }
-// };
-
-
-// type UserOption = {
-//     label: string;
-//     value: string;
-//     affiliationId: string;
-//     points: number;
-// };
-
-// function convertToUser(args: UserOption | null): userPost | null {
-//     if (!args) return null;
-//     return {
-//         userId: args.value,
-//         name: args.label,
-//         affiliationId: args.affiliationId,
-//         points: args.points,
-//     };
-// }
-
-// function convertToOption(user: userPost): UserOption {
-//     return {
-//         label: user.name,
-//         value: user.userId,
-//         affiliationId: user.affiliationId,
-//         points: user.points,
-//     };
-// }
-
-// export const UserSelect: React.FC<UseSelectProps> = ({ setUser, selected }) => {
-//     useEffect(() => {
-//         fetchUsers()
-//     },[])
-//     // const value = useMemo(
-//     //   () => (selected ? convertToOption(selected) : null),
-//     //   [selected]
-//     // );
-  
-//     function onChange(newUser: UserOption | null) {
-//       setUser(convertToUser(newUser));
-//     }
-  
-//     return (
-//         <div className='UserSelect'>
-//         <label>ユーザー名</label>
-//         <Select
-//             instanceId="userSelect"
-//             value={value} // 選択中の値
-//             onChange={onChange} // 選択されたときにはしる処理
-//             options={users.map(convertToOption)} // 選択肢
-//             placeholder="please select user"
-//             isClearable={true}
-//             isSearchable={true}
-//         />
-//         </div>
-//     );
-// };
-
-
-
-// type userPost = {
-//     userId: string
-//     name: string
-//     affiliationId: string
-//     points: number
-// }

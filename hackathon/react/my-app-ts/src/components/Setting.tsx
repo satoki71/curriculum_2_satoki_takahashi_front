@@ -2,6 +2,7 @@ import React, {Dispatch, SetStateAction} from 'react'
 import Sidebar from './Sidebar'
 import UserEdit from './UserEdit'
 import {userPost} from "../types/User"
+import {affiliationPost} from '../types/Affiliation'
 
 
 type Props={
@@ -16,12 +17,15 @@ type Props={
     fetchGives: (value: string) => void;
     fetchAffiliation: (value: string) => void;
     affiliationName: string;
+
+    affiliations: affiliationPost[];
+    fetchAffiliations: () => void;
 }
 
 const Setting = (props :Props) => {
   return (
     <div className="App" style={{ display: "flex", flexDirection: "row" }}>
-        <Sidebar users={props.users} fetchUsers={props.fetchUsers} setUser={props.setUser} setUserId={props.setUserId} fetchMates={props.fetchMates} fetchTakes={props.fetchTakes} fetchGives={props.fetchGives} fetchAffiliation={props.fetchAffiliation}/>
+        <Sidebar users={props.users} fetchUsers={props.fetchUsers} setUser={props.setUser} setUserId={props.setUserId} fetchMates={props.fetchMates} fetchTakes={props.fetchTakes} fetchGives={props.fetchGives} fetchAffiliation={props.fetchAffiliation} affiliations={props.affiliations} fetchAffiliations={props.fetchAffiliations}/>
         <div className='GiveMain'>
           <h3 className='UserAffiliationName'>{props.affiliationName}</h3>
           <h2>Hello! {props.user}</h2>
