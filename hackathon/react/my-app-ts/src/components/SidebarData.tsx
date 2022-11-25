@@ -17,7 +17,7 @@ export const SidebarData = [
         link: "/take"
     },
     {
-        title: "送信一覧",
+        title: "貢献送信",
         icon: <VolunteerActivismIcon /> ,
         link: "/give"
     },

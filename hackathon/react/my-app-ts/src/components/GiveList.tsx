@@ -36,7 +36,7 @@ const GiveList = (props :Props) => {
 
     return (
         <div>
-            <div className='takesTitle'><h3>送信ポイント一覧</h3></div>
+            <div className='takesTitle'><h3>送信履歴</h3></div>
             <ul className='GiveList'>
                 <li className='title'>
                     <div id="name">t o</div>
