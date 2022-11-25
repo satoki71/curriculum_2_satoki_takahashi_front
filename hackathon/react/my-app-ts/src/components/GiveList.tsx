@@ -39,9 +39,9 @@ const GiveList = (props :Props) => {
             <div className='takesTitle'><h3>送信ポイント一覧</h3></div>
             <ul className='GiveList'>
                 <li className='title'>
-                    <div id="name">to</div>
-                    <div id="points">points</div>
-                    <div id="message">message</div>
+                    <div id="name">t o</div>
+                    <div id="points">p o i n t s</div>
+                    <div id="message">m e s s a g e</div>
                 </li>
                 {/* <li className='title'>name, points, message</li> */}
                 {listGives}

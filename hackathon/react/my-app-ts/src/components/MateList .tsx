@@ -25,8 +25,8 @@ const MateList  = (props :Props) => {
                         <div className='topIcon'>
                             <EmojiEventsOutlinedIcon />
                         </div>
-                        <div id="name">name</div>
-                        <div id="points">points</div>
+                        <div id="name">n a m e</div>
+                        <div id="points">p o i n t s</div>
                     </li>
                     {listUsers}
                 </ul>

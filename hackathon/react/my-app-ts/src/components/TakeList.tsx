@@ -33,9 +33,9 @@ const TakeList = (props :Props) => {
             <div className='takesTitle'><h3>受信ポイント一覧</h3></div>
             <ul className='TakeList'>
                 <li className='title'>
-                    <div id="name">from</div>
-                    <div id="points">points</div>
-                    <div id="message">message</div>
+                    <div id="name">f r o m</div>
+                    <div id="points">p o i n t s</div>
+                    <div id="message">m e s s a g e</div>
                 </li>
                 {listTakes}
             </ul>
