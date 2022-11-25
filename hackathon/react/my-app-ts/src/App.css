@@ -1,0 +1,729 @@
+.App{
+  width: 100%;
+  height: 200vh;
+
+  /* display: "flex"; */
+}
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+h2{
+  margin: 20px auto;
+  padding-left: 20px;
+  position: sticky;
+  top: 5px;
+}
+
+ul{
+  list-style: none;
+}
+
+
+
+
+
+.Sidebar {
+  height: 100%;
+  width: 250px;
+  background-color: #2d445d;
+}
+/* #2d445d */
+.sticky{
+  /* height: 100%; */
+  width: 250px;
+  position: sticky;
+  top: 0;
+  background-color: #2d445d;
+}
+
+.Sidebar .LoginArea{
+  padding-top:20px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.Sidebar .LoginLink{
+  color:white;
+}
+
+
+.UserSelect {
+  margin-top: 30px;
+  margin-bottom: 80px;
+  background-color: #3d9dd8;
+}
+/* #3082b5 */
+.UserSelectLabel{
+  padding-top:20px;
+  text-align: center;
+}
+
+.UserSelectBox{
+  align-self: center;
+}
+
+.UserSelect .UserSelectBox .Box{
+  width: 200px;
+  margin:10px auto;
+  padding-bottom: 30px;
+}
+
+
+
+.userForm{ 
+  margin: auto auto;
+  background-color: aquamarine;
+  padding: 20px 0;
+  width: 50%;
+  align-items: center;
+}
+
+.userFormTitle{
+  text-align: center;
+  margin-left: 15px;
+  margin-bottom: 5px;
+}
+
+.userForm .input-contents1{
+  justify-content:center;
+  width:70%;  
+  /* margin:0 auto; */
+}
+
+.userForm .input-contents1 label{
+  flex: 50%;
+  display: grid;
+  place-items: center;
+}
+
+.userForm .input-contents1 input{
+  flex: 50%;
+}
+
+.input-contents2{
+  justify-content:center;
+  width:70%;  
+  margin-top: 10px;
+}
+
+.userForm .input-contents2 label{
+  flex: 47%;
+  display: grid;
+  place-items: center;
+}
+
+.userForm .input-contents2 .selectBox{
+  flex: 53%;
+}
+
+.userRegisterButton{
+  margin: 0 auto;
+}
+
+.userRegister{
+  width: 50px;
+  border-radius: 5px;
+}
+
+.userRegister:hover{
+  cursor: pointer;
+  background-color: dimgrey;
+}
+
+
+
+.AffiliationForm{
+  margin: auto auto;
+  background-color: rgb(114, 140, 226);
+  padding: 20px 0;
+  width: 50%;
+  align-items: center;
+}
+
+.affiliationName{
+  text-align: center;
+  margin-left: 15px;
+  margin-bottom: 10px;
+}
+
+.AffiliationButtonItem .affiliationRegister{
+  margin-left:20px;
+  width: 50px;
+  border-radius: 5px;
+}
+
+.AffiliationButtonItem .affiliationRegister:hover{
+  cursor: pointer;
+  background-color: dimgrey;
+}
+
+
+
+
+
+.LinkToHome{
+  margin-top:80px;
+  text-align: center;
+}
+
+
+
+
+.Sidebarlist {
+  height: auto;
+  padding: 0;
+  width: 100%;
+}
+ .Sidebarlist #active {
+  background-color: #3082b5;
+ }
+
+.Sidebarlist .row {
+  width: 100%;
+  height: 60px;
+  /* background-color: blue; */
+  display: flex;
+  color: white;
+  justify-content: center;
+  align-items: center;
+}
+
+.Sidebarlist .row:hover{
+  cursor: pointer;
+  background-color: #3b627a;
+}
+
+.row #icon{
+  flex: 40%;
+  display: grid;
+  place-items: center;
+}
+.row #title{
+  flex: 60%;
+}
+
+.Sidebar .userRegister {
+  width: 100%;
+  height:30px;
+  font-size:20px;
+  border:1px solid #000000;
+  border-radius: 5px;
+  align-items: center;
+}
+
+.Sidebar .userRegister:hover{
+  cursor: pointer;
+  background-color: dimgrey;
+}
+
+
+
+
+
+
+
+
+
+
+.HomeMain{
+  width: 100%;
+}
+
+.UserAffiliationName{
+  background-color: #3082b5;
+  color: white;
+  height: 40px;
+  text-align: center;
+  font-size: 30px;
+  position: sticky;
+  top: 0;
+}
+
+
+.matesTitle{
+  margin-top: 50px;
+  text-align: center;
+}
+
+.takesTitle{
+  margin-top: 50px;
+  padding-left: 20px;
+}
+
+/* .MateBox{
+  position: relative;
+} */
+
+.MateBox .topIcon{
+  position: absolute;
+  top:130%;
+  left: -25px;
+}
+
+.MateList{
+  list-style: none;
+  min-height: 250px;
+  height: 100%;
+  /* margin:0 auto; */
+  padding-top: 10px;
+  display:flex;
+  flex-flow: column;
+  padding-bottom: 50px;
+}
+
+.Main{
+  width:100%;
+  /* background-color:#93FFAB; */
+}
+
+
+.Main .MateList .title{
+  position: relative;
+  text-align: center;
+  background-color: #51a8ff;
+  width:250px;
+  height:30px;
+  /* border-radius: 5px; */
+  margin: 5px auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight:bold
+}
+
+.Main .MateList .title #name{
+  flex: 50%;
+  /* display: grid;
+  place-items: center; */
+}
+
+.Main .MateList .title #points{
+  flex: 50%;
+}
+
+.MateList li:nth-child(2){
+  color: red;
+}
+
+.MateList .list{
+  text-align: center;
+  margin: 5px auto;
+  background-color: #cee7ff;
+  width:250px;
+  height:20px;
+  /* padding-top:20px; */
+  margin-top:5px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.MateList .list #name{
+  flex: 50%;
+  /* display: grid;
+  place-items: center; */
+}
+
+.MateList .list #points{
+  flex: 50%;
+}
+
+
+
+.MateBar{
+  width: 80%;
+  height:auto;
+  margin:0 auto;
+}
+
+
+
+
+
+
+
+.TakeMain{
+  width: 100%;
+}
+
+.TakeList{
+  list-style: none;
+  min-height: 250px;
+  height: 100%;
+  /* margin:0 auto; */
+  padding-top: 10px;
+  display:flex;
+  flex-flow: column;
+  padding-bottom: 50px;
+}
+
+.TakeList .title{
+  text-align: center;
+  background-color: #51a8ff;
+  width:100%;
+  height:30px;
+  /* padding-top:20px; */
+  /* margin-top:5px; */
+  /* border-radius: 5px; */
+  margin: 5px auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight:bold
+}
+.TakeList .title #name{
+  flex: 20%;
+}
+.TakeList .title #points{
+  flex: 20%;
+}
+.TakeList .title #message{
+  flex: 60%;
+}
+
+.TakeList .list{
+  text-align: center;
+  background-color: #cee7ff;
+  width:100%;
+  min-height:30px;
+  /* padding-top:20px; */
+  /* margin-top:5px; */
+  border-radius: 10px;
+  margin: 5px auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.TakeList .list #name{
+  flex: 20%;
+}
+.TakeList .list #points{
+  flex: 20%;
+}
+.TakeList .list #message{
+  flex: 60%;
+}
+
+
+
+
+
+.GiveMain{
+  width: 100%;
+}
+
+.giveFormTitle{
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding-left: 20px;
+}
+
+.PointGiveForm{
+  margin-top: 30px;
+  width:100%;
+  background-color:cadetblue;
+}
+
+.GiveForm1{
+  display:flex;
+  flex-flow: row;
+}
+
+.PointGiveForm .giveLabel{
+  margin-right: 20px;
+}
+
+.GiveForm1 .point-contents1{
+  flex :40%; 
+  /* display: grid;
+  place-items: center; */
+  justify-content: center;
+  align-items: center;
+}
+
+
+.GiveForm1 .point-contents2{
+  flex :60%; 
+  display: grid;
+  place-items: center;
+}
+.GiveForm1 .point-contents2 .give-input{
+  width: 70px;
+}
+
+.PointGiveForm .point-contents3{
+  margin-top: 20px;
+  margin-left: 70px;
+  margin-bottom: 10px;
+}
+
+.PointGiveForm .point-contents3 input{
+  width: 60%;
+}
+
+.pointButtonArea{
+  display: flex;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.pointButtonArea .pointButtonEnp {
+  flex: 70%;
+}
+.pointButtonArea .pointButton{
+  flex:30%;
+}
+
+.pointButton .buttonbody{
+  width: 50px;
+  border-radius: 5px;
+}
+
+.pointButton .buttonbody:hover{
+  cursor: pointer;
+  background-color: dimgrey;
+}
+
+
+
+
+.GiveList{
+  min-height: 250px;
+  height: 100%;
+  /* margin:0 auto; */
+  padding-top: 10px;
+  display:flex;
+  flex-flow: column;
+  padding-bottom: 50px;
+}
+
+.GiveList .title{
+  /* text-align: center; */
+  background-color: #51a8ff;
+  width:100%;
+  height:30px;
+  /* padding-top:20px; */
+  /* margin-top:5px; */
+  /* border-radius: 5px; */
+  margin: 5px auto;
+  display: flex;
+  /* justify-content: center; */
+  align-items: center;
+  font-weight:bold
+}
+
+.GiveList .title #name{
+  flex: 20%;
+  display: grid;
+  place-items:center;
+}
+.GiveList .title #points{
+  flex: 15%;
+  padding-left:10px;
+  /* display: grid;
+  place-items:center; */
+}
+.GiveList .title #message{
+  flex: 65%;
+}
+
+.GiveList .list{
+  text-align: center;
+  background-color: #cee7ff;
+  width:100%;
+  min-height:30px;
+  /* padding-top:20px; */
+  /* margin-top:5px; */
+  border-radius: 10px;
+  margin: 5px auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.GiveList .list #form{
+  flex: 85%;
+}
+.GiveList .list #delete{
+  flex: 15%;
+}
+
+.PointGiveEditForm{
+  text-align: center;
+  background-color: #cee7ff;
+  width:100%;
+  min-height:30px;
+  /* padding-top:20px; */
+  /* margin-top:5px; */
+  border-radius: 5px;
+  margin: 5px auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.GiveEditForm .giveEditName{
+  flex: 25%;
+}
+
+.GiveEditForm .give-edit-contents1{
+  flex: 15%;
+}
+
+.GiveEditForm .give-edit-contents1 .point-input{
+  width: 60px;
+}
+
+
+.GiveEditForm .give-edit-contents2{
+  flex: 45%;
+}
+
+.GiveEditForm .give-edit-contents2 .message-input{
+  min-width: 80%;
+  min-height: 20px;
+}
+
+.GiveEditForm .GiveEditButtonItem{
+  flex: 15%;
+}
+
+
+.PointGiveEditForm button{
+  width: 50px;
+  border-radius: 5px;
+}
+
+.PointGiveEditForm button:hover{
+  cursor: pointer;
+  background-color:dimgrey;
+}
+
+.GiveDeleteButtom button{
+  width: 50px;
+  border-radius: 5px;
+  color: red;
+}
+
+.GiveDeleteButtom button:hover{
+  cursor: pointer;
+  background-color:hotpink;
+}
+
+
+
+
+
+.NameEditForm{
+  margin-top: 30px;
+  width:100%;
+  height:80px;
+  /* padding:auto auto; */
+  background-color:cadetblue;
+  justify-content: center;
+  align-items: center;
+}
+
+.NameEditForm .nameEditIcon{
+  margin-right: 10px;
+}
+
+.NameEditForm .nameEditLabel{
+  margin-right: 20px;
+}
+
+.NameEditForm .userRegister{
+  margin-left: 50px;
+}
+
+.NameEditForm .userRegister{
+  margin-left:20px;
+  width: 50px;
+  border-radius: 5px;
+}
+
+.NameEditForm .userRegister:hover{
+  cursor: pointer;
+  background-color: dimgrey;
+}
+
+
+/* .GiveEditButtonItem{
+  margin-left: 20px;
+}
+
+.PointGiveForm{
+  margin-top: 30px;
+  width:100%;
+  background-color:cadetblue;
+}
+
+.GiveItem{
+  margin-bottom: 20px;
+  display: flex;
+}
+
+.GiveEditForm button{
+  margin-left: 20px;
+}
+
+.GiveDeleteButtom{
+  margin-left: 20px;
+} */
+
+
+/* .row #title {
+  flex: 50%;
+  display: grid;
+  place-items: center;
+} */
+
+
+
+/* .App {
+  text-align: center;
+} */
+
+
+/* .App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+} */
