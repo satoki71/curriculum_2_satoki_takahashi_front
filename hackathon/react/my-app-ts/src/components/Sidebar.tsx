@@ -97,7 +97,7 @@ const Sidebar = (props: Props) => {
         <div className="Sidebar">
           <div className="sticky">
             <div className='LoginArea'>
-              <Link to="/login" className='LoginLink'>ログイン</Link>
+              <Link to="/login" className='LoginLink'>ログイン / 新規登録</Link>
             </div>
             {/* <UserSelect setUser={props.setUser} setUserId={props.setUserId} users={props.users} fetchUsers={props.fetchUsers} fetchMates={props.fetchMates} fetchTakes={props.fetchTakes} fetchGives={props.fetchGives} fetchAffiliation={props.fetchAffiliation}/> */}
             <ul className='Sidebarlist'>
