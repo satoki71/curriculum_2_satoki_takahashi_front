@@ -51,10 +51,13 @@ ul{
   color:white;
 }
 
+
 .UserSelect {
   margin-top: 30px;
-  background-color: #3082b5;
+  margin-bottom: 80px;
+  background-color: #3d9dd8;
 }
+/* #3082b5 */
 .UserSelectLabel{
   padding-top:20px;
   text-align: center;
@@ -72,10 +75,12 @@ ul{
 
 
 
-.userForm{
-  margin-top: 50px;
+.userForm{ 
+  margin: auto auto;
   background-color: aquamarine;
   padding: 20px 0;
+  width: 50%;
+  align-items: center;
 }
 
 .userFormTitle{
@@ -84,18 +89,38 @@ ul{
   margin-bottom: 5px;
 }
 
-.input-contents1{
+.userForm .input-contents1{
   justify-content:center;
-  width:100%;  
+  width:70%;  
   /* margin:0 auto; */
+}
+
+.userForm .input-contents1 label{
+  flex: 50%;
+  display: grid;
+  place-items: center;
+}
+
+.userForm .input-contents1 input{
+  flex: 50%;
 }
 
 .input-contents2{
   justify-content:center;
-  width:100%;  
-  /* margin:0 auto; */
+  width:70%;  
   margin-top: 10px;
 }
+
+.userForm .input-contents2 label{
+  flex: 47%;
+  display: grid;
+  place-items: center;
+}
+
+.userForm .input-contents2 .selectBox{
+  flex: 53%;
+}
+
 .userRegisterButton{
   margin: 0 auto;
 }
@@ -109,6 +134,35 @@ ul{
   cursor: pointer;
   background-color: dimgrey;
 }
+
+
+
+.AffiliationForm{
+  margin: auto auto;
+  background-color: rgb(114, 140, 226);
+  padding: 20px 0;
+  width: 50%;
+  align-items: center;
+}
+
+.affiliationName{
+  text-align: center;
+  margin-left: 15px;
+  margin-bottom: 10px;
+}
+
+.AffiliationButtonItem .affiliationRegister{
+  margin-left:20px;
+  width: 50px;
+  border-radius: 5px;
+}
+
+.AffiliationButtonItem .affiliationRegister:hover{
+  cursor: pointer;
+  background-color: dimgrey;
+}
+
+
 
 
 
@@ -170,25 +224,6 @@ ul{
 
 
 
-.AffiliationForm{
-  margin-top:30px;
-}
-
-.affiliationName{
-  margin-left: 15px;
-  margin-bottom: 5px;
-}
-
-.AffiliationButtonItem .affiliationRegister{
-  margin-left:20px;
-  width: 50px;
-  border-radius: 5px;
-}
-
-.AffiliationButtonItem .affiliationRegister:hover{
-  cursor: pointer;
-  background-color: dimgrey;
-}
 
 
 

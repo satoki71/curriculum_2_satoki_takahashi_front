@@ -86,7 +86,7 @@ const UserForm = (props: Props) => {
 
     return (
         <form style={{ display: "flex", flexDirection: "column"}} onSubmit={submit} className="userForm">
-            <label className="userFormTitle">ユーザー登録</label>
+            <label className="userFormTitle">新規ユーザー登録</label>
             <div className="input-contents1" style={{ display: "flex", flexDirection: "row" }}>
                 <label>名前: </label>
                 <input
@@ -104,6 +104,7 @@ const UserForm = (props: Props) => {
                 placeholder="select affiliation"
                 isClearable={true}
                 isSearchable={true}
+                className='selectBox'
                 />
                 
             </div>

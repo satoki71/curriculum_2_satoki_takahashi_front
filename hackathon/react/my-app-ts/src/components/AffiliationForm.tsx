@@ -44,7 +44,7 @@ const AffiliationForm = (props :Props) => {
     return (
         <div>
             <form onSubmit={submit} className="AffiliationForm">
-                <div className='affiliationName'>組織登録</div>
+                <div className='affiliationName'>新規組織登録</div>
                 <div style={{ display: "flex", flexDirection: "row", justifyContent: "center"}}>
                     <div className="affiliation-form-content" style={{ display: "flex", flexDirection: "row" }}>
                         {/* <label>メッセージ: </label> */}
